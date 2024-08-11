@@ -10,9 +10,10 @@ namespace Entities
         public event Action<WeaponType> Attacked;
         public event Action StartWaitingAttackDelay;
         
+        public Entity Target { get; set; }
+        
         private Weapon _weapon;
         private Entity _owner;
-        private Entity _target;
 
         public AttackLogic(WeaponSo weaponData, Entity owner)
         {
@@ -39,13 +40,11 @@ namespace Entities
 
         private void OnWaitAttackDelayComplete()
         {
-            StartAttack(Fight.Enemy);
+            StartAttack();
         }
 
-        private void StartAttack(Entity target)
+        private void StartAttack()
         {
-            _target = target;
-            
             bool canWaitAttackDelay = _weapon.TryWaitAttackRate(_owner);
 
             if (canWaitAttackDelay)
@@ -60,9 +59,9 @@ namespace Entities
         {
             _weapon.AttackRateEnded -= Attack;
             Attacked?.Invoke(_weapon.Data.Type);
-            _target.ApplyDamage(_weapon.Data.Damage);
+            Target.ApplyDamage(_weapon.Data.Damage);
             
-            StartAttack(_target);
+            StartAttack();
         }
 
         private void StopAttack()

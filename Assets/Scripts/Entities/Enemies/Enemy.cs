@@ -1,4 +1,5 @@
 using System;
+using DefaultNamespace;
 
 namespace Entities.Enemies
 {
@@ -17,6 +18,7 @@ namespace Entities.Enemies
         protected override void OnFightStateStarted()
         {
             gameObject.SetActive(true);
+            AttackLogic.Target = Fight.Player;
         }
     }
 }
