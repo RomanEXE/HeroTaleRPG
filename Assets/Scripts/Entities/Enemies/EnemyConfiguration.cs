@@ -16,7 +16,6 @@ namespace Entities.Enemies
         private void Configure()
         {
             Fight.Enemy.Init(enemyData);
-            Fight.Enemy.gameObject.SetActive(false);
         }
 
         public void Init()

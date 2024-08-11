@@ -1,5 +1,4 @@
 using System;
-using DefaultNamespace;
 using GameStates;
 using Weapons;
 
@@ -13,7 +12,7 @@ namespace Entities
         public Entity Target { get; set; }
         
         private Weapon _weapon;
-        private Entity _owner;
+        private readonly Entity _owner;
 
         public AttackLogic(WeaponSo weaponData, Entity owner)
         {

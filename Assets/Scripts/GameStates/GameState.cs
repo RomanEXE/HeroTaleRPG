@@ -1,19 +1,35 @@
+using States;
+using UnityEngine;
+
 namespace GameStates
 {
-    public static class GameState
+    public class GameState : MonoBehaviour
     {
-        public static GameFightState FightState { get; private set; }
-        public static GameIdleState IdleState { get; private set; }
-        
-        public static void Init()
+        public static GameFightState FightState { get; private set; } = new GameFightState();
+        public static GameIdleState IdleState { get; private set; } = new GameIdleState();
+
+        private IState _currentState;
+
+        public void SetFightState()
         {
-            FightState = new GameFightState();
-            IdleState = new GameIdleState();
+            if (_currentState == FightState)
+            {
+                return;
+            }
+            
+            _currentState?.Exit();
+            FightState.Enter();
         }
 
-        public static void ChangeState()
+        public void SetIdleState()
         {
+            if (_currentState == IdleState)
+            {
+                return;
+            }
             
+            _currentState?.Exit();
+            IdleState.Enter();
         }
     }
 }

@@ -1,6 +1,7 @@
 using Entities;
 using Entities.Enemies;
 using GameStates;
+using UI;
 using UnityEngine;
 
 namespace DefaultNamespace
@@ -9,22 +10,17 @@ namespace DefaultNamespace
     {
         [SerializeField] private EntityDataSo playerData;
         [SerializeField] private EnemyConfiguration enemyConfiguration;
+        [SerializeField] private GameState gameState;
+        [SerializeField] private HealButton healButton;
         
         private void Start()
         {
             Fight.Init();
-            GameState.Init();
             enemyConfiguration.Init();
-            
+            healButton.Init();
             Fight.Player.Init(playerData);
             
-            GameState.IdleState.Enter();
-
-            Timer.Register(this, 1, delegate
-            {
-                GameState.IdleState.Exit();
-                GameState.FightState.Enter();
-            });
+            gameState.SetIdleState();
         }
     }
 }

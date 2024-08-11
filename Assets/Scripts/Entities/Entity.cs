@@ -13,16 +13,7 @@ namespace Entities
 
         [SerializeField] private EntityAnimationController animator;
         [SerializeField] private WeaponSo weaponData;
-        
-        protected virtual void OnFightStateStarted()
-        {
-            
-        }
-
-        private void OnDisable()
-        {
-
-        }
+        [SerializeField] protected SpriteRenderer visual;
 
         public void Init(EntityDataSo data)
         {
@@ -32,8 +23,9 @@ namespace Entities
             animator?.Enter(AttackLogic);
             
             GameState.FightState.FightStarted += OnFightStateStarted;
+            GameState.IdleState.IdleStateStarted += OnIdleStateStarted;
         }
-        
+
         public void ApplyDamage(int damage)
         {
             Data.CurrentHp -= damage;
@@ -48,6 +40,16 @@ namespace Entities
         {
             animator?.Exit();
             AttackLogic?.Exit();
+        }
+        
+        protected virtual void OnFightStateStarted()
+        {
+            
+        }
+        
+        protected virtual void OnIdleStateStarted()
+        {
+            
         }
     }
 }

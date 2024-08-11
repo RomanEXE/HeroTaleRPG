@@ -24,8 +24,7 @@ namespace Weapons
             }
             
             InCooldown = true;
-            //_timer = Timer.Register(owner, Data.AttackDelay, OnComplete);
-            _timer = Timer.Register(owner, 1f, OnComplete);
+            _timer = Timer.Register(owner, Data.AttackDelay, OnComplete);
 
             return true;
         }

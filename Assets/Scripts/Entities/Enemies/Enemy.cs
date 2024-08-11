@@ -12,13 +12,18 @@ namespace Entities.Enemies
             base.Die();
             EnemyDied?.Invoke();
             
-            gameObject.SetActive(false);
+            visual.gameObject.SetActive(false);
         }
 
         protected override void OnFightStateStarted()
         {
-            gameObject.SetActive(true);
+            visual.gameObject.SetActive(true);
             AttackLogic.Target = Fight.Player;
+        }
+
+        protected override void OnIdleStateStarted()
+        {
+            visual.gameObject.SetActive(false);
         }
     }
 }

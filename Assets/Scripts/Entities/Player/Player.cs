@@ -8,5 +8,10 @@ namespace Entities.Player
         {
             AttackLogic.Target = Fight.Enemy;
         }
+
+        public void Heal()
+        {
+            Data.CurrentHp = Data.MaxHp;
+        }
     }
 }
