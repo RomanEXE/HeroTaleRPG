@@ -53,7 +53,7 @@ namespace Entities.Player
             CalculateRequiredExp();
         }
 
-        public void CalculateRequiredExp()
+        private void CalculateRequiredExp()
         {
             requiredExp = Mathf.RoundToInt(expCurve.Evaluate(Mathf.InverseLerp(0, maxLevel, level)) * maxRequiredExp);
         }

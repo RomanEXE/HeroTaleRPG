@@ -1,5 +1,6 @@
 using System;
 using GameStates;
+using Inventory.Items.Weapon;
 using Weapons;
 
 namespace Entities

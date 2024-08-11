@@ -1,3 +1,4 @@
+using Inventory.Items.Weapon;
 using UnityEngine;
 using UnityEngine.UI;
 

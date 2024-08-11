@@ -1,4 +1,4 @@
-namespace Weapons
+namespace Inventory.Items.Weapon
 {
     public enum WeaponType
     {

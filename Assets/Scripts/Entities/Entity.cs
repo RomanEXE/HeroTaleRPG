@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using GameStates;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using Weapons;
 
@@ -14,7 +16,7 @@ namespace Entities
         [SerializeField] private EntityAnimationController animator;
         [SerializeField] private WeaponSo weaponData;
         [SerializeField] protected SpriteRenderer visual;
-
+        
         public void Init(EntityDataSo data)
         {
             AttackLogic = new AttackLogic(weaponData, this);
