@@ -40,9 +40,8 @@ namespace Entities.Player
                 if (currentExp + value >= maxRequiredExp)
                 {
                     currentExp = maxRequiredExp;
+                    return false;
                 }
-
-                return false;
             }
 
             return true;
@@ -51,6 +50,7 @@ namespace Entities.Player
         private void LevelUp()
         {
             level++;
+            CalculateRequiredExp();
         }
 
         public void CalculateRequiredExp()

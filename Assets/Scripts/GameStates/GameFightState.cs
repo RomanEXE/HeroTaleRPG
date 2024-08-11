@@ -11,7 +11,8 @@ namespace GameStates
         public void Enter()
         {
             FightStarted?.Invoke();
-            Fight.Enemy.EnemyDied += OnEnemyDied;
+            Fight.Enemy.EnemyDied += OnEntityDied;
+            Fight.Player.PlayerDied += OnEntityDied;
         }
 
         public void Update()
@@ -21,10 +22,11 @@ namespace GameStates
 
         public void Exit()
         {
-            Fight.Enemy.EnemyDied -= OnEnemyDied;
+            Fight.Enemy.EnemyDied -= OnEntityDied;
+            Fight.Player.PlayerDied -= OnEntityDied;
         }
         
-        private void OnEnemyDied()
+        private void OnEntityDied()
         {
             GameState.FightState.Exit();
             GameState.IdleState.Enter();
