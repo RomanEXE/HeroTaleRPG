@@ -1,3 +1,5 @@
+using Entities;
+using Entities.Enemies;
 using GameStates;
 using UnityEngine;
 
@@ -5,20 +7,23 @@ namespace DefaultNamespace
 {
     public class GameBootstrap : MonoBehaviour
     {
+        [SerializeField] private EntityDataSo playerData;
+        [SerializeField] private EnemyConfiguration enemyConfiguration;
+        
         private void Start()
         {
             Fight.Init();
             GameState.Init();
+            enemyConfiguration.Init();
             
-            Fight.Enemy.Init();
-            Fight.Player.Init();
+            Fight.Player.Init(playerData);
             
-            GameState.FightState.Enter();
+            GameState.IdleState.Enter();
 
-            Timer.Register(this, 2, delegate
+            Timer.Register(this, 1, delegate
             {
-                GameState.FightState.Exit();
-                GameState.IdleState.Enter();
+                GameState.IdleState.Exit();
+                GameState.FightState.Enter();
             });
         }
     }

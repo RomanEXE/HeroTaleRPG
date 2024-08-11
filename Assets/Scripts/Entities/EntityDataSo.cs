@@ -10,6 +10,7 @@ namespace Entities
         public int CurrentHp;
         public int Damage;
         public int Armor;
+        public float PreparingForAttack;
         public Image Image;
     }
 }

@@ -13,19 +13,21 @@ namespace Weapons
 
         public Weapon(WeaponSo data)
         {
-            //Data = data;
+            Data = data;
         }
         
-        public void WaitAttackRate(MonoBehaviour owner)
+        public bool TryWaitAttackRate(MonoBehaviour owner)
         {
             if (InCooldown)
             {
-                return;
+                return false;
             }
             
             InCooldown = true;
             //_timer = Timer.Register(owner, Data.AttackDelay, OnComplete);
             _timer = Timer.Register(owner, 1f, OnComplete);
+
+            return true;
         }
 
         private void OnComplete()

@@ -1,12 +1,22 @@
-using DefaultNamespace;
+using System;
 
 namespace Entities.Enemies
 {
     public class Enemy : Entity
     {
-        protected override void OnFightStarted()
+        public event Action EnemyDied;
+
+        protected override void Die()
         {
-            AttackLogic.StartAttack(Fight.Player);
+            base.Die();
+            EnemyDied?.Invoke();
+            
+            gameObject.SetActive(false);
+        }
+
+        protected override void OnFightStateStarted()
+        {
+            gameObject.SetActive(true);
         }
     }
 }

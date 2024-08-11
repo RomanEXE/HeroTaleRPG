@@ -10,5 +10,10 @@ namespace GameStates
             FightState = new GameFightState();
             IdleState = new GameIdleState();
         }
+
+        public static void ChangeState()
+        {
+            
+        }
     }
 }

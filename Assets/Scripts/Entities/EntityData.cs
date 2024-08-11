@@ -1,3 +1,5 @@
+using UnityEngine.UI;
+
 namespace Entities
 {
     [System.Serializable]
@@ -7,6 +9,8 @@ namespace Entities
         public int CurrentHp;
         public int Damage;
         public int Armor;
+        public float PreparingForAttack;
+        public Image Image;
 
         public EntityData(EntityDataSo data)
         {
@@ -14,6 +18,8 @@ namespace Entities
             CurrentHp = data.CurrentHp;
             Damage = data.Damage;
             Armor = data.Armor;
+            PreparingForAttack = data.PreparingForAttack;
+            Image = data.Image;
         }
     }
 }

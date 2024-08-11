@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7607855718226899493}
   - component: {fileID: 7607855718226899492}
   - component: {fileID: 7607855718226899495}
-  - component: {fileID: 5540159111767097268}
+  - component: {fileID: 7986889019263973196}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -103,8 +103,10 @@ MonoBehaviour:
     CurrentHp: 5
     Damage: 1
     Armor: 0
+  animator:
+    animator: {fileID: 7986889019263973196}
   attackDelay: 0
---- !u!95 &5540159111767097268
+--- !u!95 &7986889019263973196
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -114,7 +116,7 @@ Animator:
   m_GameObject: {fileID: 7607855718226899494}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 37ef3030d2682e145abf59e49f4a74c9, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

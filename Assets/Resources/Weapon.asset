@@ -9,11 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96e464877010461ea4649a31a9aafc09, type: 3}
-  m_Name: Player
+  m_Script: {fileID: 11500000, guid: 115c83504cbc434c8780aaf2150ff878, type: 3}
+  m_Name: Weapon
   m_EditorClassIdentifier: 
-  MaxHp: 5
-  CurrentHp: 4
   Damage: 1
-  Armor: 1
+  AttackDelay: 3
+  Type: 0
   Image: {fileID: 0}

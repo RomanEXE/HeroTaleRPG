@@ -10,10 +10,13 @@ namespace Entities
         public AttackLogic AttackLogic { get; private set; }
         
         public int Damage { get; private set; }
-        
-        private void OnEnable()
-        {
 
+        [SerializeField] private EntityAnimationController animator;
+        [SerializeField] private WeaponSo weaponData;
+        
+        protected virtual void OnFightStateStarted()
+        {
+            
         }
 
         private void OnDisable()
@@ -21,26 +24,14 @@ namespace Entities
 
         }
 
-        private void OnIdleStateStarted()
-        {
-            AttackLogic.StopAttack();
-        }
-
-        protected virtual void OnFightStarted()
-        {
-            
-        }
-        
-        public void Init(WeaponSo weaponData)
+        public void Init(EntityDataSo data)
         {
             AttackLogic = new AttackLogic(weaponData, this);
-        }
-
-        public void Init()
-        {
-            AttackLogic = new AttackLogic(null, this);
-            GameState.FightState.FightStarted += OnFightStarted;
-            GameState.IdleState.IdleStateStarted += OnIdleStateStarted;
+            AttackLogic.Enter();
+            Data = new EntityData(data);
+            animator?.Enter(AttackLogic);
+            
+            GameState.FightState.FightStarted += OnFightStateStarted;
         }
         
         public void ApplyDamage(int damage)
@@ -55,7 +46,8 @@ namespace Entities
 
         protected virtual void Die()
         {
-        
+            animator?.Exit();
+            AttackLogic?.Exit();
         }
     }
 }

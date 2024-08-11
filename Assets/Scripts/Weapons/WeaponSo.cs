@@ -3,6 +3,7 @@ using UnityEngine.UI;
 
 namespace Weapons
 {
+    [CreateAssetMenu(fileName = "Weapon", menuName = "ScriptableObjects/Weapon", order = 1)]
     public class WeaponSo : ScriptableObject
     {
         public int Damage;

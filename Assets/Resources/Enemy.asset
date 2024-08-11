@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96e464877010461ea4649a31a9aafc09, type: 3}
   m_Name: Enemy
   m_EditorClassIdentifier: 
-  MaxHp: 3
-  CurrentHp: 2
+  MaxHp: 7
+  CurrentHp: 7
   Damage: 2
   Armor: 0
+  PreparingForAttack: 1
   Image: {fileID: 0}
