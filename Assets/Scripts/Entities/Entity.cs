@@ -6,11 +6,9 @@ namespace Entities
 {
     public class Entity : MonoBehaviour
     {
+        public EntityData Data;
         public AttackLogic AttackLogic { get; private set; }
         
-        [SerializeField] protected int maxHp;
-        [SerializeField] protected int currentHp;
-        [SerializeField] protected int armor;
         public int Damage { get; private set; }
         
         private void OnEnable()
@@ -47,9 +45,9 @@ namespace Entities
         
         public void ApplyDamage(int damage)
         {
-            currentHp -= damage;
+            Data.CurrentHp -= damage;
 
-            if (currentHp <= 0)
+            if (Data.CurrentHp <= 0)
             {
                 Die();
             }
