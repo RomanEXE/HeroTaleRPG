@@ -122,11 +122,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!95 &40451860 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 4888060272388970791, guid: 9d547bfea699b6c4394f14445419042b, type: 3}
-  m_PrefabInstance: {fileID: 8246009852549863854}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &359454754
 GameObject:
   m_ObjectHideFlags: 0
@@ -297,7 +292,7 @@ MonoBehaviour:
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 55
 --- !u!114 &414380639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1276,10 +1271,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7607855718045826311, guid: a2c5d62a6fe052643b828a23a71a7b15, type: 3}
-      propertyPath: currentExp
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7607855718226899493, guid: a2c5d62a6fe052643b828a23a71a7b15, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1329,9 +1320,9 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 7607855718226899495, guid: a2c5d62a6fe052643b828a23a71a7b15, type: 3}
-      propertyPath: <Animator>k__BackingField.animator
+      propertyPath: Data
       value: 
-      objectReference: {fileID: 7607855718045826311}
+      objectReference: {fileID: 11400000, guid: f5cdfb0aeca8a0742b45f9bee3c124ae, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a2c5d62a6fe052643b828a23a71a7b15, type: 3}
 --- !u!114 &7607855718045826308 stripped
@@ -1345,11 +1336,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7464350f7f7c45a69a8189518d972bbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!95 &7607855718045826311 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 7986889019263973196, guid: a2c5d62a6fe052643b828a23a71a7b15, type: 3}
-  m_PrefabInstance: {fileID: 7607855718045826306}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8246009852549863854
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1361,10 +1347,6 @@ PrefabInstance:
       propertyPath: serializationData.Prefab
       value: 
       objectReference: {fileID: 1129698758213558194, guid: 9d547bfea699b6c4394f14445419042b, type: 3}
-    - target: {fileID: 8080407416243126081, guid: 9d547bfea699b6c4394f14445419042b, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8246009853935677938, guid: 9d547bfea699b6c4394f14445419042b, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -1410,9 +1392,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8246009853935677940, guid: 9d547bfea699b6c4394f14445419042b, type: 3}
-      propertyPath: <Animator>k__BackingField.animator
+      propertyPath: Data
       value: 
-      objectReference: {fileID: 40451860}
+      objectReference: {fileID: 11400000, guid: e22cd3798067ca84b8947f2c091e6378, type: 2}
     - target: {fileID: 8246009853935677943, guid: 9d547bfea699b6c4394f14445419042b, type: 3}
       propertyPath: m_Name
       value: Enemy

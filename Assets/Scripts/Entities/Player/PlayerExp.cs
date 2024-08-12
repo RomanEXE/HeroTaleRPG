@@ -1,3 +1,4 @@
+using DefaultNamespace;
 using UnityEngine;
 
 namespace Entities.Player
@@ -14,7 +15,17 @@ namespace Entities.Player
         [SerializeField] private int level;
         [SerializeField] private int maxLevel;
 
-        public void IncreaseExp(int value)
+        public void Init()
+        {
+            Fight.Enemy.EnemyDied += OnEnemyDied;
+        }
+
+        private void OnEnemyDied()
+        {
+            IncreaseExp(Fight.Enemy.Data.ExpForKill);
+        }
+
+        private void IncreaseExp(int value)
         {
             if (!CanAddExp(value))
             {

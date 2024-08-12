@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8158259364250328340
 Transform:
   m_ObjectHideFlags: 0
@@ -43,7 +43,7 @@ Animator:
   m_GameObject: {fileID: 8080407416243126081}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 37ef3030d2682e145abf59e49f4a74c9, type: 2}
+  m_Controller: {fileID: 9100000, guid: e7890175547e60346abc69ecd23438c8, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -152,14 +152,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0afb1bfb0c13463681c9eaad4ab36446, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Data:
-    MaxHp: 5
-    CurrentHp: 5
-    Damage: 1
-    Armor: 0
-    PreparingForAttack: 0
-    Image: {fileID: 0}
-  animator:
+  Data: {fileID: 11400000, guid: e22cd3798067ca84b8947f2c091e6378, type: 2}
+  <Animator>k__BackingField:
     animator: {fileID: 4888060272388970791}
   weaponData: {fileID: 11400000, guid: 5b7fb71a7aad8b242ae617f1da2b3351, type: 2}
   visual: {fileID: 4352357661135102918}

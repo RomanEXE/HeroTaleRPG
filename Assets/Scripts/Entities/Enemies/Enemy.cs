@@ -1,8 +1,5 @@
 using System;
-using System.Collections.Generic;
 using DefaultNamespace;
-using DefaultNamespace.Inventory;
-using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Entities.Enemies
@@ -10,14 +7,19 @@ namespace Entities.Enemies
     public class Enemy : Entity
     {
         public event Action EnemyDied;
-        
+        public EnemySo Data;
         [SerializeField] private ItemsDropper _dropper;
-        
+
+        public override void Init()
+        {
+            base.Init();
+        }
+
         protected override void Die()
         {
             base.Die();
             EnemyDied?.Invoke();
-            
+            Data.CurrentHp = Data.MaxHp;
             visual.gameObject.SetActive(false);
         }
 
@@ -35,6 +37,11 @@ namespace Entities.Enemies
         protected override Entity GetTarget()
         {
             return Fight.Player;
+        }
+
+        public override EntityDataSo GetData()
+        {
+            return Data;
         }
     }
 }

@@ -9,12 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96e464877010461ea4649a31a9aafc09, type: 3}
+  m_Script: {fileID: 11500000, guid: 4d4db52312ff4e8eb67246e71a19890f, type: 3}
   m_Name: Player
   m_EditorClassIdentifier: 
   MaxHp: 5
-  CurrentHp: 5
+  CurrentHp: 4
   Damage: 1
-  Armor: 1
-  PreparingForAttack: 4
-  Image: {fileID: 0}
+  Armor: 0
+  PreparingForAttack: 2
+  Animator: {fileID: 9100000, guid: 37ef3030d2682e145abf59e49f4a74c9, type: 2}
+  ID: 0

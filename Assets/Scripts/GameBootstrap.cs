@@ -7,7 +7,6 @@ using UnityEngine;
 
 public class GameBootstrap : MonoBehaviour
 {
-    [SerializeField] private EntityDataSo playerData;
     [SerializeField] private EnemyConfiguration enemyConfiguration;
     [SerializeField] private GameState gameState;
     [SerializeField] private HealButton healButton;
@@ -18,7 +17,7 @@ public class GameBootstrap : MonoBehaviour
         Fight.Init();
         healButton.Init();
         enemyConfiguration.Init();
-        Fight.Player.Init(playerData);
+        Fight.Player.Init();
             
         GameState.SetIdleState();
     }

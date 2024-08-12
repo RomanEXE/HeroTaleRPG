@@ -99,17 +99,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7464350f7f7c45a69a8189518d972bbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Data:
-    MaxHp: 5
-    CurrentHp: 5
-    Damage: 1
-    Armor: 0
-    PreparingForAttack: 0
-    Image: {fileID: 0}
-  animator:
+  Data: {fileID: 11400000, guid: c9f09380402c0354398fbfe3d3b8f435, type: 2}
+  <Animator>k__BackingField:
     animator: {fileID: 7986889019263973196}
   weaponData: {fileID: 11400000, guid: 5b7fb71a7aad8b242ae617f1da2b3351, type: 2}
   visual: {fileID: 7607855718226899492}
+  playerExp: {fileID: 7607855718045826311}
 --- !u!95 &7986889019263973196
 Animator:
   serializedVersion: 5

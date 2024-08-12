@@ -10,20 +10,16 @@ namespace Entities
     public class Entity : MonoBehaviour
     {
         public event Action AttackEventInvoked;
-        
-        public EntityData Data;
-        //public AttackLogic AttackLogic { get; private set; }
         public Weapon Weapon { get; private set; }
         [field: SerializeField] public EntityAnimationController Animator { get; private set; }
-
-        private EntityStateMachine _stateMachine;
-
+        
         [SerializeField] private WeaponItem weaponData;
         [SerializeField] protected SpriteRenderer visual;
         
-        public void Init(EntityDataSo data)
+        private EntityStateMachine _stateMachine;
+        
+        public virtual void Init()
         {
-            Data = new EntityData(data);
             Animator?.Enter();
             Weapon = weaponData.CreateWeapon(this);
             _stateMachine = new EntityStateMachine(this, GetTarget());
@@ -44,9 +40,9 @@ namespace Entities
         
         public void ApplyDamage(int damage)
         {
-            Data.CurrentHp -= damage;
+            GetData().CurrentHp -= damage;
 
-            if (Data.CurrentHp <= 0)
+            if (GetData().CurrentHp <= 0)
             {
                 Die();
             }
@@ -65,6 +61,11 @@ namespace Entities
         protected virtual void OnIdleStateStarted()
         {
             
+        }
+
+        public virtual EntityDataSo GetData()
+        {
+            return null;
         }
     }
 }

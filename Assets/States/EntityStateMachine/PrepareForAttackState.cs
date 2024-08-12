@@ -38,7 +38,7 @@ namespace States.EntityStateMachine
 
         private void PrepareForAttack()
         {
-            _timer = Timer.Register(_entityStateMachine.Owner, _entityStateMachine.Owner.Data.PreparingForAttack, OnWaitAttackDelayComplete);
+            _timer = Timer.Register(_entityStateMachine.Owner, _entityStateMachine.Owner.GetData().PreparingForAttack, OnWaitAttackDelayComplete);
         }
 
         private void OnWaitAttackDelayComplete()

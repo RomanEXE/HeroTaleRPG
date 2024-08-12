@@ -2,11 +2,9 @@ using UnityEngine;
 
 namespace Entities.Enemies
 {
-    public class EnemySo : ScriptableObject
+    [CreateAssetMenu(fileName = "Enemy", menuName = "Entities/Enemy", order = 1)]
+    public class EnemySo : EntityDataSo
     {
-        [SerializeField] private int maxHp;
-        [SerializeField] private int currentHp;
-        [SerializeField] private int armor;
-        [SerializeField] private int damage;
+        public int ExpForKill;
     }
 }

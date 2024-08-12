@@ -1,9 +1,8 @@
+using UnityEditor.Animations;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Entities
 {
-    [CreateAssetMenu(fileName = "Entity", menuName = "ScriptableObjects/Entity", order = 1)]
     public class EntityDataSo : ScriptableObject
     {
         public int MaxHp;
@@ -11,6 +10,6 @@ namespace Entities
         public int Damage;
         public int Armor;
         public float PreparingForAttack;
-        public Image Image;
+        public AnimatorController Animator;
     }
 }
