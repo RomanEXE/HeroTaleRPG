@@ -16,10 +16,6 @@ namespace States.EntityStateMachine
         
         public void Enter()
         {
-            if (_entityStateMachine.Owner == Fight.Enemy)
-            {
-                Debug.Log("prepare");
-            }
             if (GameState.GetCurrentState() == GameState.IdleState)
             {
                 _entityStateMachine.ChangeState(EntityStates.IdleState);

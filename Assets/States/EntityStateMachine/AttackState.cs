@@ -15,11 +15,6 @@ namespace States.EntityStateMachine
         
         public void Enter()
         {
-            if (_entityStateMachine.Owner == Fight.Enemy)
-            {
-                Debug.Log("attack");
-            }
-
             if (GameState.GetCurrentState() == GameState.IdleState)
             {
                 _entityStateMachine.ChangeState(EntityStates.IdleState);
@@ -27,7 +22,6 @@ namespace States.EntityStateMachine
             }
                 
             _entityStateMachine.Owner.Animator.SetAttackAnimation(_entityStateMachine.Owner.Weapon.Data.Type);
-            //_entityStateMachine.Owner.AttackEventInvoked += Attack;
             Attack();
         }
 
@@ -38,7 +32,7 @@ namespace States.EntityStateMachine
 
         public void Exit()
         {
-            _entityStateMachine.Owner.AttackEventInvoked -= Attack;
+            
         }
 
         private void Attack()

@@ -14,11 +14,6 @@ namespace Entities.Player
             PlayerDied?.Invoke();
         }
 
-        protected override void OnFightStateStarted()
-        {
-            //AttackLogic.Target = Fight.Enemy;
-        }
-
         public void Heal()
         {
             Data.CurrentHp = Data.MaxHp;

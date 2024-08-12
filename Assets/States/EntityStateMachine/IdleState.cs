@@ -15,10 +15,6 @@ namespace States.EntityStateMachine
         
         public void Enter()
         {
-            if (_entityStateMachine.Owner == Fight.Enemy)
-            {
-                Debug.Log("idle enemy");
-            }
             _entityStateMachine.Owner.Animator.SetIdleAnimation();
             GameState.FightState.FightStarted += OnFightStarted;
         }

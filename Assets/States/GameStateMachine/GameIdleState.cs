@@ -1,8 +1,6 @@
 using System;
-using States;
-using UnityEngine;
 
-namespace GameStates
+namespace States.GameStateMachine
 {
     public class GameIdleState : IState
     {
@@ -10,7 +8,6 @@ namespace GameStates
         
         public void Enter()
         {
-            Debug.Log("set idle state");
             IdleStateStarted?.Invoke();
         }
 

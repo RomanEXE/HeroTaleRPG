@@ -23,8 +23,6 @@ namespace Entities
         
         public void Init(EntityDataSo data)
         {
-            //AttackLogic = new AttackLogic(weaponData, this);
-            //AttackLogic.Enter();
             Data = new EntityData(data);
             Animator?.Enter();
             Weapon = weaponData.CreateWeapon(this);
@@ -57,7 +55,6 @@ namespace Entities
         protected virtual void Die()
         {
             Animator?.Exit();
-            //AttackLogic?.Exit();
         }
         
         protected virtual void OnFightStateStarted()
