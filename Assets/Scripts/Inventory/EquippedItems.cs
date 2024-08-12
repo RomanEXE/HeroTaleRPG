@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using DefaultNamespace.Inventory;
 using Inventory.Items.Armor;
-using Inventory.Items.Weapon;
+using Inventory.Items.WeaponItem;
 
 namespace Inventory
 {

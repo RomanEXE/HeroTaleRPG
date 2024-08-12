@@ -1,6 +1,8 @@
 using System;
 using DefaultNamespace;
 using States;
+using States.GameStateMachine;
+using UnityEngine;
 
 namespace GameStates
 {
@@ -10,6 +12,7 @@ namespace GameStates
         
         public void Enter()
         {
+            Debug.Log("set fight state");
             FightStarted?.Invoke();
             Fight.Enemy.EnemyDied += OnEntityDied;
             Fight.Player.PlayerDied += OnEntityDied;
@@ -28,8 +31,7 @@ namespace GameStates
         
         private void OnEntityDied()
         {
-            GameState.FightState.Exit();
-            GameState.IdleState.Enter();
+            GameState.SetIdleState();
         }
     }
 }

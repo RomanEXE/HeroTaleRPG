@@ -1,20 +1,24 @@
 using System;
+using Entities;
+using Inventory.Items.WeaponItem;
 using UnityEngine;
 
-namespace Weapons
+namespace WeaponLogic
 {
-    public class Weapon
+    public abstract class Weapon
     {
         public event Action AttackRateEnded;
         public bool InCooldown { get; private set; }
-        public WeaponSo Data { get; private set; }
+        public WeaponItem Data { get; private set; }
 
         private Timer _timer;
 
-        public Weapon(WeaponSo data)
+        public Weapon(WeaponItem data)
         {
             Data = data;
         }
+
+        public abstract void Attack(Entity target);
         
         public bool TryWaitAttackRate(MonoBehaviour owner)
         {

@@ -20,7 +20,8 @@ namespace Entities.Enemies
 
         public void Init()
         {
-            GameState.IdleState.IdleStateStarted += Configure;
+            Fight.Enemy.Init(enemyData);
+            //GameState.IdleState.IdleStateStarted += Configure;
         }
     }
 }

@@ -1,33 +1,49 @@
-using System.Collections.Generic;
+using System;
 using GameStates;
-using Sirenix.OdinInspector;
+using Inventory.Items.WeaponItem;
+using States.EntityStateMachine;
 using UnityEngine;
-using Weapons;
+using WeaponLogic;
 
 namespace Entities
 {
     public class Entity : MonoBehaviour
     {
-        public EntityData Data;
-        public AttackLogic AttackLogic { get; private set; }
+        public event Action AttackEventInvoked;
         
-        public int Damage { get; private set; }
+        public EntityData Data;
+        //public AttackLogic AttackLogic { get; private set; }
+        public Weapon Weapon { get; private set; }
+        [field: SerializeField] public EntityAnimationController Animator { get; private set; }
 
-        [SerializeField] private EntityAnimationController animator;
-        [SerializeField] private WeaponSo weaponData;
+        private EntityStateMachine _stateMachine;
+
+        [SerializeField] private WeaponItem weaponData;
         [SerializeField] protected SpriteRenderer visual;
         
         public void Init(EntityDataSo data)
         {
-            AttackLogic = new AttackLogic(weaponData, this);
-            AttackLogic.Enter();
+            //AttackLogic = new AttackLogic(weaponData, this);
+            //AttackLogic.Enter();
             Data = new EntityData(data);
-            animator?.Enter(AttackLogic);
+            Animator?.Enter();
+            Weapon = weaponData.CreateWeapon(this);
+            _stateMachine = new EntityStateMachine(this, GetTarget());
             
             GameState.FightState.FightStarted += OnFightStateStarted;
             GameState.IdleState.IdleStateStarted += OnIdleStateStarted;
         }
 
+        public void OnAttackEventInvoked()
+        {
+            
+        }
+
+        protected virtual Entity GetTarget()
+        {
+            return null;
+        }
+        
         public void ApplyDamage(int damage)
         {
             Data.CurrentHp -= damage;
@@ -40,8 +56,8 @@ namespace Entities
 
         protected virtual void Die()
         {
-            animator?.Exit();
-            AttackLogic?.Exit();
+            Animator?.Exit();
+            //AttackLogic?.Exit();
         }
         
         protected virtual void OnFightStateStarted()

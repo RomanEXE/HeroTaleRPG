@@ -10,9 +10,7 @@ namespace GameStates
         public static GameIdleState IdleState { get; private set; }
         
         private static GameStateMachine _stateMachine;
-
-        private IState _currentState;
-
+        
         public void Init()
         {
             _stateMachine = new GameStateMachine();
@@ -20,14 +18,19 @@ namespace GameStates
             IdleState = (GameIdleState)_stateMachine.States[States.GameStateMachine.GameStates.IdleState];
         }
         
-        public void SetFightState()
+        public static void SetFightState()
         {
             _stateMachine.ChangeState(States.GameStateMachine.GameStates.FightState);
         }
 
-        public void SetIdleState()
+        public static void SetIdleState()
         {
             _stateMachine.ChangeState(States.GameStateMachine.GameStates.IdleState);
+        }
+
+        public static IState GetCurrentState()
+        {
+            return _stateMachine.CurrentState;
         }
     }
 }

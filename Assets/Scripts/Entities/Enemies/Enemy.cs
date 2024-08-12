@@ -24,12 +24,17 @@ namespace Entities.Enemies
         protected override void OnFightStateStarted()
         {
             visual.gameObject.SetActive(true);
-            AttackLogic.Target = Fight.Player;
+            //AttackLogic.Target = Fight.Player;
         }
 
         protected override void OnIdleStateStarted()
         {
             visual.gameObject.SetActive(false);
+        }
+
+        protected override Entity GetTarget()
+        {
+            return Fight.Player;
         }
     }
 }

@@ -1,6 +1,6 @@
-using Inventory.Items.Weapon;
+using GameStates;
+using Inventory.Items.WeaponItem;
 using UnityEngine;
-using Weapons;
 
 namespace Entities
 {
@@ -9,32 +9,28 @@ namespace Entities
     {
         [SerializeField] private Animator animator;
         
-        private AttackLogic _attackLogic;
+        private Entity _owner;
 
-        public EntityAnimationController(AttackLogic attackLogic)
+        public EntityAnimationController(Entity owner)
         {
         }
         
-        public void Enter(AttackLogic attackLogic)
+        public void Enter()
         {
-            _attackLogic = attackLogic;
-
-            _attackLogic.Attacked += SetAttackAnimation;
-            _attackLogic.StartWaitingAttackDelay += SetIdleAnimation;
+            GameState.IdleState.IdleStateStarted += SetIdleAnimation;
         }
 
         public void Exit()
         {
-            _attackLogic.Attacked -= SetAttackAnimation;
-            _attackLogic.StartWaitingAttackDelay -= SetIdleAnimation;
+            GameState.IdleState.IdleStateStarted -= SetIdleAnimation;
         }
 
-        private void SetIdleAnimation()
+        public void SetIdleAnimation()
         {
             animator.SetTrigger("Idle");
         }
 
-        private void SetAttackAnimation(WeaponType type)
+        public void SetAttackAnimation(WeaponType type)
         {
             if (type == WeaponType.Melee)
             {

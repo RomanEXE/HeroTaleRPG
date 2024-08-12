@@ -16,12 +16,17 @@ namespace Entities.Player
 
         protected override void OnFightStateStarted()
         {
-            AttackLogic.Target = Fight.Enemy;
+            //AttackLogic.Target = Fight.Enemy;
         }
 
         public void Heal()
         {
             Data.CurrentHp = Data.MaxHp;
+        }
+
+        protected override Entity GetTarget()
+        {
+            return Fight.Enemy;
         }
     }
 }

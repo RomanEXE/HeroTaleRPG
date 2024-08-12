@@ -16,10 +16,10 @@ public class GameBootstrap : MonoBehaviour
     {
         gameState.Init();
         Fight.Init();
-        enemyConfiguration.Init();
         healButton.Init();
+        enemyConfiguration.Init();
         Fight.Player.Init(playerData);
             
-        gameState.SetIdleState();
+        GameState.SetIdleState();
     }
 }
