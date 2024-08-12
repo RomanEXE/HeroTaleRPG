@@ -1,35 +1,33 @@
 using States;
+using States.GameStateMachine;
 using UnityEngine;
 
 namespace GameStates
 {
     public class GameState : MonoBehaviour
     {
-        public static GameFightState FightState { get; private set; } = new GameFightState();
-        public static GameIdleState IdleState { get; private set; } = new GameIdleState();
+        public static GameFightState FightState { get; private set; }
+        public static GameIdleState IdleState { get; private set; }
+        
+        private static GameStateMachine _stateMachine;
 
         private IState _currentState;
 
+        public void Init()
+        {
+            _stateMachine = new GameStateMachine();
+            FightState = (GameFightState)_stateMachine.States[States.GameStateMachine.GameStates.FightState];
+            IdleState = (GameIdleState)_stateMachine.States[States.GameStateMachine.GameStates.IdleState];
+        }
+        
         public void SetFightState()
         {
-            if (_currentState == FightState)
-            {
-                return;
-            }
-            
-            _currentState?.Exit();
-            FightState.Enter();
+            _stateMachine.ChangeState(States.GameStateMachine.GameStates.FightState);
         }
 
         public void SetIdleState()
         {
-            if (_currentState == IdleState)
-            {
-                return;
-            }
-            
-            _currentState?.Exit();
-            IdleState.Enter();
+            _stateMachine.ChangeState(States.GameStateMachine.GameStates.IdleState);
         }
     }
 }
