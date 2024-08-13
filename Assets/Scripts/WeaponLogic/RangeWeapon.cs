@@ -1,6 +1,5 @@
 using Entities;
 using Inventory.Items.WeaponItem;
-using UnityEngine;
 using WeaponLogic.Projectiles;
 
 namespace WeaponLogic
@@ -16,7 +15,7 @@ namespace WeaponLogic
 
         public override void Attack(Entity target)
         {
-            ProjectileSpawner.Instance.Spawn(target, _owner.transform.position);
+            ProjectileSpawner.Instance.Spawn(target, _owner.transform.position, Data.Damage);
         }
     }
 }

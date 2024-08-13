@@ -19,12 +19,12 @@ namespace Entities.Enemies
         {
             base.Die();
             EnemyDied?.Invoke();
-            Data.CurrentHp = Data.MaxHp;
             visual.gameObject.SetActive(false);
         }
 
         protected override void OnFightStateStarted()
         {
+            Data.CurrentHp = Data.MaxHp;
             visual.gameObject.SetActive(true);
             //AttackLogic.Target = Fight.Player;
         }

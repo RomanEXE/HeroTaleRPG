@@ -1,12 +1,13 @@
 using DefaultNamespace;
 using GameStates;
-using UnityEngine;
+using UI;
 
 namespace States.EntityStateMachine
 {
     public class AttackState : IState
     {
         private EntityStateMachine _entityStateMachine;
+        private bool _isOwnerSwitchedWeapon;
         
         public AttackState(EntityStateMachine stateMachine)
         {
@@ -20,9 +21,20 @@ namespace States.EntityStateMachine
                 _entityStateMachine.ChangeState(EntityStates.IdleState);
                 return;
             }
-                
-            _entityStateMachine.Owner.Animator.SetAttackAnimation(_entityStateMachine.Owner.Weapon.Data.Type);
-            Attack();
+
+            if (_entityStateMachine.Owner == Fight.Player)
+            {
+                StateText.Instance.ChangeText("Attack");
+            }
+            
+            _entityStateMachine.Owner.SwitchedWeapon += OnOwnerSwitchedWeapon;
+            
+            WaitAttackRate();
+        }
+
+        private void OnOwnerSwitchedWeapon()
+        {
+            _isOwnerSwitchedWeapon = true;
         }
 
         public void Update()
@@ -34,10 +46,30 @@ namespace States.EntityStateMachine
         {
             
         }
-
+        
+        private void WaitAttackRate()
+        {
+            _entityStateMachine.Owner.Weapon.AttackRateEnded += Attack;
+            _entityStateMachine.Owner.Animator.SetAttackAnimation(_entityStateMachine.Owner.Weapon.Data.Type);
+            _entityStateMachine.Owner.Weapon.TryWaitAttackRate(_entityStateMachine.Owner);
+        }
+        
         private void Attack()
         {
+            _entityStateMachine.Owner.Weapon.AttackRateEnded -= Attack;
             _entityStateMachine.Owner.Weapon.Attack(_entityStateMachine.Target);
+            
+            SelectNextState();
+        }
+
+        private void SelectNextState()
+        {
+            if (_isOwnerSwitchedWeapon)
+            {
+                _entityStateMachine.ChangeState(EntityStates.SwitchingWeapon);
+                _isOwnerSwitchedWeapon = false;
+                return;
+            }
             
             _entityStateMachine.ChangeState(EntityStates.PrepareForAttack);
         }

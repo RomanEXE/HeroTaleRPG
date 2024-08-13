@@ -1,5 +1,6 @@
 using DefaultNamespace;
 using GameStates;
+using UI;
 using UnityEngine;
 
 namespace States.EntityStateMachine
@@ -15,6 +16,11 @@ namespace States.EntityStateMachine
         
         public void Enter()
         {
+            if (_entityStateMachine.Owner == Fight.Player)
+            {
+                StateText.Instance.ChangeText("Idle");
+            }
+            
             _entityStateMachine.Owner.Animator.SetIdleAnimation();
             GameState.FightState.FightStarted += OnFightStarted;
         }

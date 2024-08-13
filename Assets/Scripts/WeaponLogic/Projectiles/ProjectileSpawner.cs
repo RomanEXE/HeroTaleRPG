@@ -1,4 +1,3 @@
-using System;
 using Entities;
 using Lean.Pool;
 using UnityEngine;
@@ -19,10 +18,11 @@ namespace WeaponLogic.Projectiles
             }
         }
 
-        public void Spawn(Entity target, Vector2 position)
+        public void Spawn(Entity target, Vector2 position, int damage)
         {
             Projectile spawnedProjectile = LeanPool.Spawn(prefab, position, Quaternion.identity);
             spawnedProjectile.Target = target;
+            spawnedProjectile.Damage = damage;
         }
     }
 }

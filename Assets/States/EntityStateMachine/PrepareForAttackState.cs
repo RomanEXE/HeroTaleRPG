@@ -1,6 +1,6 @@
 using DefaultNamespace;
 using GameStates;
-using UnityEngine;
+using UI;
 
 namespace States.EntityStateMachine
 {
@@ -21,8 +21,21 @@ namespace States.EntityStateMachine
                 _entityStateMachine.ChangeState(EntityStates.IdleState);
                 return;
             }
+            
+            if (_entityStateMachine.Owner == Fight.Player)
+            {
+                StateText.Instance.ChangeText("Prepare");
+            }
+            
+            _entityStateMachine.Owner.SwitchedWeapon += OnOwnerSwitchedWeapon;
             _entityStateMachine.Owner.Animator.SetIdleAnimation();
+            
             PrepareForAttack();
+        }
+
+        private void OnOwnerSwitchedWeapon()
+        {
+            _entityStateMachine.ChangeState(EntityStates.SwitchingWeapon);
         }
 
         public void Update()
@@ -32,17 +45,28 @@ namespace States.EntityStateMachine
 
         public void Exit()
         {
-            _timer?.Cancel();
-            _timer = null;
+            _entityStateMachine.Owner.SwitchedWeapon -= OnOwnerSwitchedWeapon;
+            _entityStateMachine.AttackPreparingTimer?.Pause();
+            //_timer?.Cancel();
+            //_timer = null;
         }
 
         private void PrepareForAttack()
         {
-            _timer = Timer.Register(_entityStateMachine.Owner, _entityStateMachine.Owner.GetData().PreparingForAttack, OnWaitAttackDelayComplete);
+            if (_entityStateMachine.AttackPreparingTimer != null && _entityStateMachine.AttackPreparingTimer.isPaused)
+            {
+                _entityStateMachine.AttackPreparingTimer.Resume();
+                return;
+            }
+            
+            _entityStateMachine.AttackPreparingTimer = Timer.Register(_entityStateMachine.Owner, _entityStateMachine.Owner.GetData().PreparingForAttack, OnWaitAttackDelayComplete);
         }
 
         private void OnWaitAttackDelayComplete()
         {
+            _entityStateMachine.AttackPreparingTimer?.Cancel();
+            _entityStateMachine.AttackPreparingTimer = null;
+            
             _entityStateMachine.ChangeState(EntityStates.AttackState);
         }
     }

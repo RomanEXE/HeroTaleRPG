@@ -10,6 +10,7 @@ namespace Entities
     public class Entity : MonoBehaviour
     {
         public event Action AttackEventInvoked;
+        public event Action SwitchedWeapon;
         public Weapon Weapon { get; private set; }
         [field: SerializeField] public EntityAnimationController Animator { get; private set; }
         
@@ -66,6 +67,12 @@ namespace Entities
         public virtual EntityDataSo GetData()
         {
             return null;
+        }
+        
+        //DEBUG
+        public void SwitchWeapon()
+        {
+            SwitchedWeapon?.Invoke();
         }
     }
 }

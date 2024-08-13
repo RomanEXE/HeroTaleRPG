@@ -43,5 +43,10 @@ namespace WeaponLogic
         {
             _timer?.Cancel();
         }
+
+        public void ChangeWeapon()
+        {
+            
+        }
     }
 }
