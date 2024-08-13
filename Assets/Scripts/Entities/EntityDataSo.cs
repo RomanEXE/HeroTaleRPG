@@ -10,6 +10,7 @@ namespace Entities
         public int Damage;
         public int Armor;
         public float PreparingForAttack;
+        public float ChangingWeaponTime;
         public AnimatorController Animator;
     }
 }

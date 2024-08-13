@@ -25,7 +25,8 @@ namespace States.EntityStateMachine
                 _entityStateMachine.AttackPreparingTimer.Pause();
             }
             
-            _timer = Timer.Register(_entityStateMachine.Owner, 2f, OnComplete);
+            _entityStateMachine.Owner.Animator.SetIdleAnimation();
+            _timer = Timer.Register(_entityStateMachine.Owner, _entityStateMachine.Owner.GetData().ChangingWeaponTime, OnComplete);
         }
 
         private void OnComplete()

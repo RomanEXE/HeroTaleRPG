@@ -8,7 +8,7 @@ namespace States
         public IState CurrentState => _currentState;
         private IState _currentState;
 
-        public void ChangeState(T state)
+        public virtual void ChangeState(T state)
         {
             IState newState = States[state];
             

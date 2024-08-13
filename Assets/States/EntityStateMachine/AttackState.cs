@@ -26,7 +26,7 @@ namespace States.EntityStateMachine
             {
                 StateText.Instance.ChangeText("Attack");
             }
-            
+
             _entityStateMachine.Owner.SwitchedWeapon += OnOwnerSwitchedWeapon;
             
             WaitAttackRate();
@@ -44,7 +44,7 @@ namespace States.EntityStateMachine
 
         public void Exit()
         {
-            
+            _entityStateMachine.Owner.SwitchedWeapon -= OnOwnerSwitchedWeapon;
         }
         
         private void WaitAttackRate()

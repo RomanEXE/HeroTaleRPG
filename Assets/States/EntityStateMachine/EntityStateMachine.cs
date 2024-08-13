@@ -1,15 +1,14 @@
 using System;
 using System.Collections.Generic;
-using DefaultNamespace;
 using Entities;
 using GameStates;
-using Inventory.Items.WeaponItem;
-using UnityEngine;
 
 namespace States.EntityStateMachine
 {
     public class EntityStateMachine : StateMachineBasic<EntityStates>
     {
+        public event Action<EntityStates> StateChanged; 
+        
         public Entity Owner { get; private set; }
         public Entity Target { get; private set; }
         public Timer AttackPreparingTimer;
@@ -33,6 +32,12 @@ namespace States.EntityStateMachine
         private void SetIdleState()
         {
             ChangeState(EntityStates.IdleState);
+        }
+
+        public override void ChangeState(EntityStates state)
+        {
+            base.ChangeState(state);
+            StateChanged?.Invoke(state);
         }
     }
 }
