@@ -47,16 +47,8 @@ namespace UI
                     StartFillAnimation(owner.Weapon.Data.AttackDelay, Color.white);
                     break;
                 case EntityStates.PrepareForAttack:
-                    if (fillingImage == null)
-                    {
-                        break;
-                    }
-
-                    if (_stateMachine.AttackPreparingTimer != null)
-                    {
-                        fillingImage.fillAmount = _stateMachine.AttackPreparingTimer.GetTimeElapsed();
-                        StartFillAnimation(_stateMachine.AttackPreparingTimer.GetTimeRemaining(), Color.yellow);
-                    }
+                    fillingImage.fillAmount = _stateMachine.AttackPreparingTimer.GetTimeElapsed();
+                    StartFillAnimation(_stateMachine.AttackPreparingTimer.GetTimeRemaining(), Color.yellow);
                     break;
                 case EntityStates.SwitchingWeapon:
                     StartFillAnimation(owner.GetData().ChangingWeaponTime, Color.cyan);

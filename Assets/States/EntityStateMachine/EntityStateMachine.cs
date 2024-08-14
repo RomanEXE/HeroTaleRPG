@@ -7,6 +7,7 @@ namespace States.EntityStateMachine
 {
     public class EntityStateMachine : StateMachineBasic<EntityStates>
     {
+        public event Action<EntityStates> StateStartChanging;
         public event Action<EntityStates> StateChanged; 
         
         public Entity Owner { get; private set; }
@@ -27,6 +28,9 @@ namespace States.EntityStateMachine
             };
             
             GameState.IdleState.IdleStateStarted += SetIdleState;
+            
+            AttackPreparingTimer = Timer.Register(Owner, 1f, delegate {  });
+            AttackPreparingTimer?.Cancel();
         }
 
         private void SetIdleState()
@@ -36,6 +40,7 @@ namespace States.EntityStateMachine
 
         public override void ChangeState(EntityStates state)
         {
+            StateStartChanging?.Invoke(state);
             base.ChangeState(state);
             StateChanged?.Invoke(state);
         }

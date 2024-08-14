@@ -30,11 +30,6 @@ namespace States.EntityStateMachine
             _entityStateMachine.ChangeState(EntityStates.PrepareForAttack);
         }
 
-        public void Update()
-        {
-            
-        }
-
         public void Exit()
         {
             GameState.FightState.FightStarted -= OnFightStarted;

@@ -11,11 +11,6 @@ namespace States.GameStateMachine
             IdleStateStarted?.Invoke();
         }
 
-        public void Update()
-        {
-            
-        }
-
         public void Exit()
         {
             

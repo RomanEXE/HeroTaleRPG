@@ -42,11 +42,6 @@ namespace States.EntityStateMachine
             _entityStateMachine.ChangeState(EntityStates.AttackState);
         }
 
-        public void Update()
-        {
-            
-        }
-
         public void Exit()
         {
             _timer?.Cancel();

@@ -36,12 +36,6 @@ namespace States.EntityStateMachine
         {
             _isOwnerSwitchedWeapon = true;
         }
-
-        public void Update()
-        {
-            
-        }
-
         public void Exit()
         {
             _entityStateMachine.Owner.SwitchedWeapon -= OnOwnerSwitchedWeapon;

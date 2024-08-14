@@ -15,11 +15,6 @@ namespace States.GameStateMachine
             Fight.Player.PlayerDied += OnEntityDied;
         }
 
-        public void Update()
-        {
-            
-        }
-
         public void Exit()
         {
             Fight.Enemy.EnemyDied -= OnEntityDied;
