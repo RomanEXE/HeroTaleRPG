@@ -23,6 +23,10 @@ namespace Entities
         
         private EntityStateMachine _stateMachine;
         
+        
+        public WeaponItem Range;
+
+        
         public virtual void Init()
         {
             Animator?.Enter();
@@ -78,6 +82,7 @@ namespace Entities
         public void SwitchWeapon()
         {
             SwitchedWeapon?.Invoke();
+            Weapon = Range.CreateWeapon(this);
         }
     }
 }

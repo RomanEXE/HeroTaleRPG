@@ -26,12 +26,12 @@ namespace States.EntityStateMachine
             }
             
             _entityStateMachine.Owner.Animator.SetIdleAnimation();
-            _timer = Timer.Register(_entityStateMachine.Owner, _entityStateMachine.Owner.GetData().ChangingWeaponTime, OnComplete);
+            _timer = Timer.Register(_entityStateMachine.Owner, _entityStateMachine.Owner.GetData().ChangingWeaponTime, SelectNextState);
         }
 
-        private void OnComplete()
+        private void SelectNextState()
         {
-            _entityStateMachine.Owner.Weapon.ChangeWeapon();
+            //_entityStateMachine.Owner.Weapon.ChangeWeapon();
 
             if (_entityStateMachine.AttackPreparingTimer != null && _entityStateMachine.AttackPreparingTimer.isPaused)
             {

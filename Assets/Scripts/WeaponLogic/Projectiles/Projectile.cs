@@ -1,5 +1,6 @@
 using DG.Tweening;
 using Entities;
+using Lean.Pool;
 using UnityEngine;
 
 namespace WeaponLogic.Projectiles
@@ -10,7 +11,7 @@ namespace WeaponLogic.Projectiles
         public int Damage;
         [SerializeField] private float speed;
 
-        private void Start()
+        public void Move()
         {
             transform.DOMove(Target.transform.position, speed)
                 .SetSpeedBased(true)
@@ -20,6 +21,7 @@ namespace WeaponLogic.Projectiles
 
         private void OnMovedToTarget()
         {
+            LeanPool.Despawn(this);
             Target.ApplyDamage(Damage);
         }
 

@@ -1,5 +1,6 @@
 using System;
 using DefaultNamespace;
+using Inventory.Items.WeaponItem;
 using UnityEngine;
 
 namespace Entities.Player

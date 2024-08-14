@@ -47,6 +47,10 @@ namespace UI
                     StartFillAnimation(owner.Weapon.Data.AttackDelay, Color.white);
                     break;
                 case EntityStates.PrepareForAttack:
+                    if (fillingImage == null)
+                    {
+                        break;
+                    }
                     fillingImage.fillAmount = _stateMachine.AttackPreparingTimer.GetTimeElapsed();
                     StartFillAnimation(_stateMachine.AttackPreparingTimer.GetTimeRemaining(), Color.yellow);
                     break;

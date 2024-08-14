@@ -23,6 +23,7 @@ namespace WeaponLogic.Projectiles
             Projectile spawnedProjectile = LeanPool.Spawn(prefab, position, Quaternion.identity);
             spawnedProjectile.Target = target;
             spawnedProjectile.Damage = damage;
+            spawnedProjectile.Move();
         }
     }
 }

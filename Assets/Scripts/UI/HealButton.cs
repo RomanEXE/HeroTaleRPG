@@ -13,26 +13,16 @@ namespace UI
 
         private void OnDestroy()
         {
-            GameState.IdleState.IdleStateStarted -= ShowButton;
-            GameState.FightState.FightStarted -= HideButton;
-            owner.onClick.RemoveAllListeners();
         }
 
-        public void Init()
+        private void OnEnable()
         {
-            GameState.IdleState.IdleStateStarted += ShowButton;
-            GameState.FightState.FightStarted += HideButton;
             owner.onClick.AddListener(Heal);
         }
 
-        private void ShowButton()
+        private void OnDisable()
         {
-            gameObject.SetActive(true);
-        }
-        
-        private void HideButton()
-        {
-            gameObject.SetActive(false);
+            owner.onClick.RemoveAllListeners();
         }
         
         private void Heal()
