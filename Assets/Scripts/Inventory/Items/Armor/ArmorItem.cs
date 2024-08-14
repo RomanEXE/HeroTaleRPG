@@ -1,5 +1,4 @@
 using DefaultNamespace;
-using DefaultNamespace.Inventory;
 using UnityEngine;
 
 namespace Inventory.Items.Armor

@@ -51,8 +51,12 @@ namespace UI
                     {
                         break;
                     }
-                    fillingImage.fillAmount = _stateMachine.AttackPreparingTimer.GetTimeElapsed();
-                    StartFillAnimation(_stateMachine.AttackPreparingTimer.GetTimeRemaining(), Color.yellow);
+
+                    if (_stateMachine.AttackPreparingTimer != null)
+                    {
+                        fillingImage.fillAmount = _stateMachine.AttackPreparingTimer.GetTimeElapsed();
+                        StartFillAnimation(_stateMachine.AttackPreparingTimer.GetTimeRemaining(), Color.yellow);
+                    }
                     break;
                 case EntityStates.SwitchingWeapon:
                     StartFillAnimation(owner.GetData().ChangingWeaponTime, Color.cyan);

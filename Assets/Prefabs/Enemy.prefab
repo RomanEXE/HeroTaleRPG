@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4888060272388970791}
   - component: {fileID: 4352357661135102918}
   m_Layer: 0
-  m_Name: Sprite
+  m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +29,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1035349089523525148}
   m_Father: {fileID: 8246009853935677938}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -116,7 +117,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8246009853935677938}
   - component: {fileID: 8246009853935677940}
-  - component: {fileID: 1129698758213558194}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -137,7 +137,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8158259364250328340}
-  - {fileID: 1035349089523525148}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -158,55 +157,14 @@ MonoBehaviour:
     animator: {fileID: 4888060272388970791}
   weaponData: {fileID: 11400000, guid: 5b7fb71a7aad8b242ae617f1da2b3351, type: 2}
   visual: {fileID: 4352357661135102918}
+  Range: {fileID: 0}
   Data: {fileID: 11400000, guid: e22cd3798067ca84b8947f2c091e6378, type: 2}
-  _dropper: {fileID: 1129698758213558194}
---- !u!114 &1129698758213558194
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8246009853935677943}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e1b68a1795c4c4385b591ac7456c652, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: Items
-      Entry: 7
-      Data: 0|System.Collections.Generic.Dictionary`2[[DefaultNamespace.Inventory.Item,
-        Assembly-CSharp],[System.Int32, mscorlib]], mscorlib
-    - Name: comparer
-      Entry: 7
-      Data: 1|System.Collections.Generic.ObjectEqualityComparer`1[[DefaultNamespace.Inventory.Item,
-        Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
 --- !u!1001 &3176039509874664900
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 8246009853935677938}
+    m_TransformParent: {fileID: 8158259364250328340}
     m_Modifications:
     - target: {fileID: 1994878535767757563, guid: 917fba9ba61379742ad0f4386892b509, type: 3}
       propertyPath: m_PresetInfoIsWorld
@@ -222,7 +180,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2471846835367281624, guid: 917fba9ba61379742ad0f4386892b509, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2471846835367281624, guid: 917fba9ba61379742ad0f4386892b509, type: 3}
       propertyPath: m_AnchorMax.x

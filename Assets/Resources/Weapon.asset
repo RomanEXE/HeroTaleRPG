@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Weapon
   m_EditorClassIdentifier: 
   Name: 0
+  DropChance: 0
   Icon: {fileID: 0}
   Damage: 1
   AttackDelay: 1

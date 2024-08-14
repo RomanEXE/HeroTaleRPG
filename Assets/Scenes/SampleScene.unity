@@ -257,56 +257,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 75585786}
   m_CullTransparentMesh: 1
---- !u!1 &156301831
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 156301832}
-  - component: {fileID: 156301833}
-  m_Layer: 0
-  m_Name: ButtonsVisibility
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &156301832
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 156301831}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1124882581}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &156301833
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 156301831}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 145c4decc8a044f2857c943640f4654d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  idleButtons:
-  - {fileID: 2085031849}
-  - {fileID: 513477033}
-  - {fileID: 2064897694}
-  fightButtons:
-  - {fileID: 440660168}
 --- !u!1 &359454754
 GameObject:
   m_ObjectHideFlags: 0
@@ -1181,11 +1131,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 978816779}
   m_CullTransparentMesh: 1
---- !u!4 &1124882581 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4451663800110460363, guid: fbac2557a7910674fb1f3213f572d4f6, type: 3}
-  m_PrefabInstance: {fileID: 4451663799364486119}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1346103981
 GameObject:
   m_ObjectHideFlags: 0
@@ -1403,51 +1348,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1641831948
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1641831949}
-  - component: {fileID: 1641831950}
-  m_Layer: 0
-  m_Name: ProjectileSpawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1641831949
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1641831948}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1124882581}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1641831950
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1641831948}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 709ec343852c42c0bf099afa2d521d0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefab: {fileID: 1369770221745521439, guid: 29ed7007daab7ad4dad0354f0d10fc82, type: 3}
 --- !u!1 &1836864146
 GameObject:
   m_ObjectHideFlags: 0
@@ -1805,6 +1705,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 156301833, guid: fbac2557a7910674fb1f3213f572d4f6, type: 3}
+      propertyPath: idleButtons.Array.data[0]
+      value: 
+      objectReference: {fileID: 2085031849}
+    - target: {fileID: 156301833, guid: fbac2557a7910674fb1f3213f572d4f6, type: 3}
+      propertyPath: idleButtons.Array.data[1]
+      value: 
+      objectReference: {fileID: 513477033}
+    - target: {fileID: 156301833, guid: fbac2557a7910674fb1f3213f572d4f6, type: 3}
+      propertyPath: idleButtons.Array.data[2]
+      value: 
+      objectReference: {fileID: 2064897694}
+    - target: {fileID: 156301833, guid: fbac2557a7910674fb1f3213f572d4f6, type: 3}
+      propertyPath: fightButtons.Array.data[0]
+      value: 
+      objectReference: {fileID: 440660168}
     - target: {fileID: 4451663800110460363, guid: fbac2557a7910674fb1f3213f572d4f6, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -1853,18 +1769,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Controllers
       objectReference: {fileID: 0}
-    - target: {fileID: 4451663800436482939, guid: fbac2557a7910674fb1f3213f572d4f6, type: 3}
-      propertyPath: gameState
-      value: 
-      objectReference: {fileID: 898654278}
-    - target: {fileID: 4451663800436482939, guid: fbac2557a7910674fb1f3213f572d4f6, type: 3}
-      propertyPath: healButton
-      value: 
-      objectReference: {fileID: 513477038}
-    - target: {fileID: 4451663800436482939, guid: fbac2557a7910674fb1f3213f572d4f6, type: 3}
-      propertyPath: buttonsVisibility
-      value: 
-      objectReference: {fileID: 156301833}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fbac2557a7910674fb1f3213f572d4f6, type: 3}
 --- !u!1001 &7607855718045826306

@@ -1,6 +1,5 @@
 using System;
 using DefaultNamespace;
-using UnityEngine;
 
 namespace Entities.Enemies
 {
@@ -8,25 +7,24 @@ namespace Entities.Enemies
     {
         public event Action EnemyDied;
         public EnemySo Data;
-        [SerializeField] private ItemsDropper _dropper;
-
+        
         public override void Init()
         {
             base.Init();
+            Data.ItemsDropper.Init(transform.position);
         }
 
         protected override void Die()
         {
             base.Die();
             EnemyDied?.Invoke();
-            visual.gameObject.SetActive(false);
+            Data.ItemsDropper.Drop();
         }
 
         protected override void OnFightStateStarted()
         {
             Data.CurrentHp = Data.MaxHp;
             visual.gameObject.SetActive(true);
-            //AttackLogic.Target = Fight.Player;
         }
 
         protected override void OnIdleStateStarted()

@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using DefaultNamespace.Inventory;
+using Inventory.Items;
 
 namespace Inventory
 {

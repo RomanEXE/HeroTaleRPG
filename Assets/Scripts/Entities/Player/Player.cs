@@ -1,6 +1,5 @@
 using System;
 using DefaultNamespace;
-using Inventory.Items.WeaponItem;
 using UnityEngine;
 
 namespace Entities.Player
@@ -22,6 +21,7 @@ namespace Entities.Player
             base.Die();
             
             PlayerDied?.Invoke();
+            Data.CurrentHp = 1;
         }
 
         public void Heal()

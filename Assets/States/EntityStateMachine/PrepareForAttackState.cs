@@ -27,15 +27,20 @@ namespace States.EntityStateMachine
                 StateText.Instance.ChangeText("Prepare");
             }
             
-            _entityStateMachine.Owner.SwitchedWeapon += OnOwnerSwitchedWeapon;
+            _entityStateMachine.StateChanged += OnStateChanged;
             _entityStateMachine.Owner.Animator.SetIdleAnimation();
             
             PrepareForAttack();
         }
 
-        private void OnOwnerSwitchedWeapon()
+        private void OnStateChanged(EntityStates state)
         {
-            _entityStateMachine.ChangeState(EntityStates.SwitchingWeapon);
+            switch (state)
+            {
+                case EntityStates.IdleState:
+                    _entityStateMachine.AttackPreparingTimer?.Cancel();
+                    break;
+            }
         }
 
         public void Update()
@@ -45,7 +50,7 @@ namespace States.EntityStateMachine
 
         public void Exit()
         {
-            _entityStateMachine.Owner.SwitchedWeapon -= OnOwnerSwitchedWeapon;
+            _entityStateMachine.StateChanged += OnStateChanged;
             _entityStateMachine.AttackPreparingTimer?.Pause();
             //_timer?.Cancel();
             //_timer = null;
@@ -65,7 +70,6 @@ namespace States.EntityStateMachine
         private void OnWaitAttackDelayComplete()
         {
             _entityStateMachine.AttackPreparingTimer?.Cancel();
-            _entityStateMachine.AttackPreparingTimer = null;
             
             _entityStateMachine.ChangeState(EntityStates.AttackState);
         }

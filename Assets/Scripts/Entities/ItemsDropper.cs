@@ -1,18 +1,32 @@
-using System.Collections.Generic;
-using DefaultNamespace.Inventory;
-using Sirenix.OdinInspector;
+using Inventory.Items;
+using UnityEngine;
 
 namespace Entities
 {
     [System.Serializable]
-    public class ItemsDropper : SerializedMonoBehaviour
+    public class ItemsDropper
     {
-        [DictionaryDrawerSettings(KeyLabel = "Предмет", ValueLabel = "Шанс выпадения")]
-        public Dictionary<Item, int> Items = new Dictionary<Item, int>();
-
+        public Item[] Items;
+        
+        private Vector3 _ownerPosition;
+        
+        public void Init(Vector3 ownerPosition)
+        {
+            _ownerPosition = ownerPosition;
+        }
+        
         public void Drop()
         {
+            for (int i = 0; i < Items.Length; i++)
+            {
+                if (RandomChance.Random(Items[i].DropChance))
+                {
+                    DroppedItemSpawner.Instance.SpawnItem(Items[i], _ownerPosition);
+                    return;
+                }
+            }
             
+            Drop();
         }
     }
 }

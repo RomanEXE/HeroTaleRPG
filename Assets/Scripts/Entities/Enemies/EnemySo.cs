@@ -6,5 +6,6 @@ namespace Entities.Enemies
     public class EnemySo : EntityDataSo
     {
         public int ExpForKill;
+        public ItemsDropper ItemsDropper;
     }
 }

@@ -1,12 +1,12 @@
 using UnityEngine;
-using UnityEngine.UI;
 
-namespace DefaultNamespace.Inventory
+namespace Inventory.Items
 {
     public class Item : ScriptableObject
     {
         public int Name;
-        public Image Icon;
+        [Range(0, 100)] public int DropChance;
+        public Sprite Icon;
 
         public virtual void Equip()
         {

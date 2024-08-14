@@ -7,7 +7,6 @@ namespace Entities
     {
         public int MaxHp;
         public int CurrentHp;
-        public int Damage;
         public int Armor;
         public float PreparingForAttack;
         public float ChangingWeaponTime;

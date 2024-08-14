@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using DefaultNamespace.Inventory;
+using Inventory.Items;
 using Inventory.Items.Armor;
 using Inventory.Items.WeaponItem;
 
