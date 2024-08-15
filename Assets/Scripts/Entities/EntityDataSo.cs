@@ -1,3 +1,4 @@
+using Inventory.Items.WeaponItem;
 using UnityEditor.Animations;
 using UnityEngine;
 
@@ -11,6 +12,7 @@ namespace Entities
         public float PreparingForAttack;
         public float ChangingWeaponTime;
         [Range(0, 100)] public int SpawnChance;
+        public WeaponItem Weapon;
         public AnimatorController Animator;
     }
 }

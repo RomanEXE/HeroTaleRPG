@@ -2,30 +2,26 @@ using System.Collections.Generic;
 using Inventory.Items;
 using Inventory.Items.Armor;
 using Inventory.Items.WeaponItem;
+using Sirenix.OdinInspector;
+using UI.Inventory;
 
 namespace Inventory
 {
-    public class EquippedItems
+    public class EquippedItems : SerializedBehaviour
     {
         public ArmorItem Helmet;
         public ArmorItem Chest;
         public ArmorItem Boots;
         public WeaponItem Weapon;
 
-        public Dictionary<EquippedItemsSlots, Item> Slots = new Dictionary<EquippedItemsSlots, Item>();
-
-        public void Init()
-        {
-            Slots.Add(EquippedItemsSlots.Helmet, null);
-            Slots.Add(EquippedItemsSlots.Chest, null);
-            Slots.Add(EquippedItemsSlots.Boots, null);
-            Slots.Add(EquippedItemsSlots.Weapon, null);
-        }
+        [DictionaryDrawerSettings]
+        public Dictionary<EquippedItemsSlots, InventoryCell> Slots;
         
         public void EquipItem(EquippedItemsSlots slot, Item item)
         {
-            Slots[slot]?.Remove();
-            Slots[slot] = item;
+            Entities.Entities.Player.Data.Inventory.RemoveItem(item);
+            Entities.Entities.Player.Data.Inventory.AddItem(Slots[slot].Item);
+            Slots[slot].SetItem(item);
             
             item.Equip();
             Entities.Entities.Player.SwitchWeapon();

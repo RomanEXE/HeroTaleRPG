@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using Inventory.Items;
 using UI.Inventory;
 using UnityEngine;
@@ -8,7 +7,7 @@ namespace Inventory
     [System.Serializable]
     public class Inventory
     {
-        [SerializeField] private List<Item> items;
+        [SerializeField] private InventoryCell[] items;
         [SerializeField] private int maxItems;
 
         [SerializeField] private InventoryUI ui;
@@ -20,15 +19,24 @@ namespace Inventory
         
         public void AddItem(Item item)
         {
-            if (items.Count <= maxItems)
+            for (int i = 0; i < items.Length; i++)
             {
-                items.Add(item);
+                if (items[i].Item != null)
+                {
+                    items[i].SetItem(item);
+                }
             }
         }
 
         public void RemoveItem(Item item)
         {
-            items.Remove(item);
+            for (int i = 0; i < items.Length; i++)
+            {
+                if (items[i].Item == item)
+                {
+                    items[i].Remove();
+                }
+            }
         }
     }
 }

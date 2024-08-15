@@ -1,6 +1,5 @@
 using Entities;
 using UnityEngine;
-using UnityEngine.UI;
 using WeaponLogic;
 
 namespace Inventory.Items.WeaponItem
@@ -14,7 +13,7 @@ namespace Inventory.Items.WeaponItem
 
         public override void Equip()
         {
-            base.Equip();
+            Entities.Entities.Player.Data.Weapon = this;
         }
 
         public Weapon CreateWeapon(Entity owner)

@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: Enemy
   m_EditorClassIdentifier: 
   MaxHp: 25
-  CurrentHp: 24
+  CurrentHp: 25
   Armor: 0
   PreparingForAttack: 3
   ChangingWeaponTime: 0
   SpawnChance: 52
+  Weapon: {fileID: 0}
   Animator: {fileID: 9100000, guid: e7890175547e60346abc69ecd23438c8, type: 2}
   ExpForKill: 10
   ItemsDropper:

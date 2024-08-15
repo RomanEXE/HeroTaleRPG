@@ -12,17 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d4db52312ff4e8eb67246e71a19890f, type: 3}
   m_Name: Player
   m_EditorClassIdentifier: 
-  MaxHp: 25
-  CurrentHp: 1
-  Armor: 1
-  PreparingForAttack: 2
+  MaxHp: 30
+  CurrentHp: 30
+  Armor: 2
+  PreparingForAttack: 1.9
   ChangingWeaponTime: 2
   SpawnChance: 0
+  Weapon: {fileID: 0}
   Animator: {fileID: 9100000, guid: 37ef3030d2682e145abf59e49f4a74c9, type: 2}
   Inventory:
     items:
-    - {fileID: 11400000, guid: 88c32e02953e63d438cd53e65ad9c75d, type: 2}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
     maxItems: 52
+    ui: {fileID: 0}
   PlayerExp:
     expCurve:
       serializedVersion: 2
@@ -48,8 +52,9 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    currentExp: 0
-    requiredExp: 180
+    currentExp: 10
+    requiredExp: 255
     maxRequiredExp: 500
-    level: 2
+    level: 3
     maxLevel: 10
+    expFillBar: {fileID: 0}

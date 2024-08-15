@@ -15,6 +15,13 @@ namespace UI.Inventory
         {
             item = newItem;
             image.sprite = item.Icon;
+            gameObject.SetActive(true);
+        }
+
+        public void Remove()
+        {
+            item = null;
+            gameObject.SetActive(false);
         }
     }
 }
