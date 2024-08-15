@@ -1,3 +1,4 @@
+using UI;
 using UnityEngine;
 
 namespace Entities.Player
@@ -14,6 +15,9 @@ namespace Entities.Player
         [Header("Level")]
         [SerializeField] private int level;
         [SerializeField] private int maxLevel;
+
+        [Header("UI")]
+        [SerializeField] private FillBar expFillBar;
 
         public void Init()
         {
@@ -61,6 +65,10 @@ namespace Entities.Player
         private void LevelUp()
         {
             level++;
+            Entities.Player.Data.MaxHp += 5;
+            Entities.Player.Data.PreparingForAttack -= 0.1f;
+            Entities.Player.Data.Armor++;
+            
             CalculateRequiredExp();
         }
 
@@ -71,7 +79,7 @@ namespace Entities.Player
 
         private void UpdateUI()
         {
-            
+            expFillBar.ChangeValue(currentExp, requiredExp);
         }
     }
 }

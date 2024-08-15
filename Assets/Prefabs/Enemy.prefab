@@ -258,12 +258,27 @@ PrefabInstance:
       propertyPath: owner
       value: 
       objectReference: {fileID: 8246009853935677940}
+    - target: {fileID: 6256085913536945064, guid: 917fba9ba61379742ad0f4386892b509, type: 3}
+      propertyPath: tmp
+      value: 
+      objectReference: {fileID: 564350299851989481}
     - target: {fileID: 7597759540991256702, guid: 917fba9ba61379742ad0f4386892b509, type: 3}
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 917fba9ba61379742ad0f4386892b509, type: 3}
+--- !u!114 &564350299851989481 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3154620359701906477, guid: 917fba9ba61379742ad0f4386892b509, type: 3}
+  m_PrefabInstance: {fileID: 3176039509874664900}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &1035349089523525148 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2471846835367281624, guid: 917fba9ba61379742ad0f4386892b509, type: 3}

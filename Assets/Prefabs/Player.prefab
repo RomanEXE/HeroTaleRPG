@@ -104,7 +104,7 @@ MonoBehaviour:
     animator: {fileID: 7986889019263973196}
   weaponData: {fileID: 11400000, guid: 5b7fb71a7aad8b242ae617f1da2b3351, type: 2}
   visual: {fileID: 7607855718226899492}
-  Range: {fileID: 0}
+  Range: {fileID: 11400000, guid: 8c35bc07d9ce3f24f935838ec9398f07, type: 2}
   Data: {fileID: 11400000, guid: f5cdfb0aeca8a0742b45f9bee3c124ae, type: 2}
 --- !u!95 &7986889019263973196
 Animator:
@@ -134,6 +134,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7607855718226899493}
     m_Modifications:
+    - target: {fileID: 1994878535767757563, guid: 917fba9ba61379742ad0f4386892b509, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2471846835367281624, guid: 917fba9ba61379742ad0f4386892b509, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -222,6 +226,10 @@ PrefabInstance:
       propertyPath: owner
       value: 
       objectReference: {fileID: 7607855718226899495}
+    - target: {fileID: 6256085913536945064, guid: 917fba9ba61379742ad0f4386892b509, type: 3}
+      propertyPath: tmp
+      value: 
+      objectReference: {fileID: 6578055352092606492}
     - target: {fileID: 7597759540991256702, guid: 917fba9ba61379742ad0f4386892b509, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -244,3 +252,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2471846835367281624, guid: 917fba9ba61379742ad0f4386892b509, type: 3}
   m_PrefabInstance: {fileID: 8110566202367607857}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6578055352092606492 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3154620359701906477, guid: 917fba9ba61379742ad0f4386892b509, type: 3}
+  m_PrefabInstance: {fileID: 8110566202367607857}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -39,7 +39,7 @@ namespace Entities
         public void ApplyDamage(int damage)
         {
             GetData().CurrentHp -= damage;
-            UI.HpBar.ChangeValue(GetData().CurrentHp);
+            UI.HpBar.ChangeValue(GetData().CurrentHp, GetData().MaxHp);
 
             if (GetData().CurrentHp <= 0)
             {
@@ -67,12 +67,12 @@ namespace Entities
         
         protected virtual void OnFightStateStarted()
         {
-            UI.HpBar.ChangeValue(GetData().CurrentHp);
+            UI.HpBar.ChangeValue(GetData().CurrentHp, GetData().MaxHp);
         }
         
         protected virtual void OnIdleStateStarted()
         {
-            UI.HpBar.ChangeValue(GetData().CurrentHp);
+            UI.HpBar.ChangeValue(GetData().CurrentHp, GetData().MaxHp);
         }
 
         public virtual EntityDataSo GetData()
