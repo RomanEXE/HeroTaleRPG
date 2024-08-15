@@ -1,4 +1,3 @@
-using DefaultNamespace;
 using Entities;
 using Inventory.Items.WeaponItem;
 using UnityEngine;

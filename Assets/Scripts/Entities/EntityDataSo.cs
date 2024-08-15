@@ -10,6 +10,7 @@ namespace Entities
         public int Armor;
         public float PreparingForAttack;
         public float ChangingWeaponTime;
+        [Range(0, 100)] public int SpawnChance;
         public AnimatorController Animator;
     }
 }

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 950c246c068c42c3969a74b390a5a8f4, type: 3}
-  m_Name: Enemy
+  m_Name: Enemy 1
   m_EditorClassIdentifier: 
   MaxHp: 25
   CurrentHp: 24
@@ -18,7 +18,7 @@ MonoBehaviour:
   PreparingForAttack: 3
   ChangingWeaponTime: 0
   SpawnChance: 52
-  Animator: {fileID: 9100000, guid: e7890175547e60346abc69ecd23438c8, type: 2}
+  Animator: {fileID: 9100000, guid: 37ef3030d2682e145abf59e49f4a74c9, type: 2}
   ExpForKill: 10
   ItemsDropper:
     Items:

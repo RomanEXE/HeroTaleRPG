@@ -12,6 +12,11 @@ namespace Inventory.Items.WeaponItem
         public float AttackDelay;
         public WeaponType Type;
 
+        public override void Equip()
+        {
+            base.Equip();
+        }
+
         public Weapon CreateWeapon(Entity owner)
         {
             switch (Type)

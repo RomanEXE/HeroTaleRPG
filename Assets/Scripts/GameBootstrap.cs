@@ -1,4 +1,3 @@
-using DefaultNamespace;
 using Entities.Enemies;
 using GameStates;
 using UI;
@@ -13,10 +12,10 @@ public class GameBootstrap : MonoBehaviour
     private void Start()
     {
         gameState.Init();
-        Fight.Init();
+        Entities.Entities.Init();
         buttonsVisibility.Init();
         enemyConfiguration.Init();
-        Fight.Player.Init();
+        Entities.Entities.Player.Init();
             
         GameState.SetIdleState();
     }

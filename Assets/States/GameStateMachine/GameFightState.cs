@@ -1,5 +1,4 @@
 using System;
-using DefaultNamespace;
 using GameStates;
 
 namespace States.GameStateMachine
@@ -11,14 +10,14 @@ namespace States.GameStateMachine
         public void Enter()
         {
             FightStarted?.Invoke();
-            Fight.Enemy.EnemyDied += OnEntityDied;
-            Fight.Player.PlayerDied += OnEntityDied;
+            Entities.Entities.Enemy.EnemyDied += OnEntityDied;
+            Entities.Entities.Player.PlayerDied += OnEntityDied;
         }
 
         public void Exit()
         {
-            Fight.Enemy.EnemyDied -= OnEntityDied;
-            Fight.Player.PlayerDied -= OnEntityDied;
+            Entities.Entities.Enemy.EnemyDied -= OnEntityDied;
+            Entities.Entities.Player.PlayerDied -= OnEntityDied;
         }
         
         private void OnEntityDied()

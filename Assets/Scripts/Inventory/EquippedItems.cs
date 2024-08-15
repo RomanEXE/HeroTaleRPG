@@ -26,7 +26,9 @@ namespace Inventory
         {
             Slots[slot]?.Remove();
             Slots[slot] = item;
+            
             item.Equip();
+            Entities.Entities.Player.SwitchWeapon();
         }
     }
 }

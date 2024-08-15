@@ -1,4 +1,4 @@
-using DefaultNamespace;
+using Entities;
 using UnityEngine;
 
 namespace Inventory.Items.Armor
@@ -12,14 +12,19 @@ namespace Inventory.Items.Armor
 
         public override void Equip()
         {
-            Fight.Player.Data.MaxHp += Hp;
-            Fight.Player.Data.Armor += Armor;
+            Entities.Entities.Player.Data.MaxHp += Hp;
+            Entities.Entities.Player.Data.Armor += Armor;
         }
 
         public override void Remove()
         {
-            Fight.Player.Data.MaxHp -= Hp;
-            Fight.Player.Data.Armor -= Armor;
+            Entities.Entities.Player.Data.MaxHp -= Hp;
+            Entities.Entities.Player.Data.Armor -= Armor;
+        }
+
+        public override void GetInfo()
+        {
+            Stats.Value = Armor;
         }
     }
 }

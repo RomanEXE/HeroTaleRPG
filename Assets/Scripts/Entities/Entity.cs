@@ -10,11 +10,9 @@ namespace Entities
 {
     public class Entity : MonoBehaviour
     {
-        public event Action AttackEventInvoked;
         public event Action SwitchedWeapon;
         
         public Weapon Weapon { get; private set; }
-        
         [field: SerializeField] public EntityUI UI { get; private set; }
         [field: SerializeField] public EntityAnimationController Animator { get; private set; }
         
@@ -29,7 +27,7 @@ namespace Entities
         
         public virtual void Init()
         {
-            Animator?.Enter();
+            Animator?.Enter(GetData().Animator);
             Weapon = weaponData.CreateWeapon(this);
             _stateMachine = new EntityStateMachine(this, GetTarget());
             UI.Init(_stateMachine);
@@ -37,27 +35,31 @@ namespace Entities
             GameState.FightState.FightStarted += OnFightStateStarted;
             GameState.IdleState.IdleStateStarted += OnIdleStateStarted;
         }
-
-        public void OnAttackEventInvoked()
-        {
-            
-        }
-
-        protected virtual Entity GetTarget()
-        {
-            return null;
-        }
         
         public void ApplyDamage(int damage)
         {
             GetData().CurrentHp -= damage;
+            UI.HpBar.ChangeValue(GetData().CurrentHp);
 
             if (GetData().CurrentHp <= 0)
             {
                 Die();
             }
         }
+        
+        public void SwitchWeapon()
+        {
+            SwitchedWeapon?.Invoke();
+            Weapon = Range.CreateWeapon(this);
+        }
 
+        #region Virtual
+
+        protected virtual Entity GetTarget()
+        {
+            return null;
+        }
+        
         protected virtual void Die()
         {
             Animator?.Exit();
@@ -65,24 +67,19 @@ namespace Entities
         
         protected virtual void OnFightStateStarted()
         {
-            
+            UI.HpBar.ChangeValue(GetData().CurrentHp);
         }
         
         protected virtual void OnIdleStateStarted()
         {
-            
+            UI.HpBar.ChangeValue(GetData().CurrentHp);
         }
 
         public virtual EntityDataSo GetData()
         {
             return null;
         }
-        
-        //DEBUG
-        public void SwitchWeapon()
-        {
-            SwitchedWeapon?.Invoke();
-            Weapon = Range.CreateWeapon(this);
-        }
+
+        #endregion
     }
 }

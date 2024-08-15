@@ -1,4 +1,3 @@
-using DefaultNamespace;
 using GameStates;
 using UI;
 
@@ -22,7 +21,7 @@ namespace States.EntityStateMachine
                 return;
             }
 
-            if (_entityStateMachine.Owner == Fight.Player)
+            if (_entityStateMachine.Owner == Entities.Entities.Enemy)
             {
                 StateText.Instance.ChangeText("Attack");
             }

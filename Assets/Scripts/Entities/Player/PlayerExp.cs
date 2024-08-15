@@ -1,9 +1,9 @@
-using DefaultNamespace;
 using UnityEngine;
 
 namespace Entities.Player
 {
-    public class PlayerExp : MonoBehaviour
+    [System.Serializable]
+    public class PlayerExp
     {
         [Header("Exp")]
         [SerializeField] private AnimationCurve expCurve;
@@ -17,12 +17,12 @@ namespace Entities.Player
 
         public void Init()
         {
-            Fight.Enemy.EnemyDied += OnEnemyDied;
+            Entities.Enemy.EnemyDied += OnEnemyDied;
         }
 
         private void OnEnemyDied()
         {
-            IncreaseExp(Fight.Enemy.Data.ExpForKill);
+            IncreaseExp(Entities.Enemy.Data.ExpForKill);
         }
 
         private void IncreaseExp(int value)

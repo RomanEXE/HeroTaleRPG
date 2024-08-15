@@ -1,5 +1,4 @@
 using System;
-using DefaultNamespace;
 using UnityEngine;
 
 namespace Entities.Player
@@ -8,12 +7,12 @@ namespace Entities.Player
     {
         public event Action PlayerDied;
         public PlayerSo Data;
-        [SerializeField] private PlayerExp playerExp;
 
         public override void Init()
         {
             base.Init();
-            playerExp.Init();
+            Data.PlayerExp.Init();
+            Data.Inventory.Init();
         }
 
         protected override void Die()
@@ -31,7 +30,7 @@ namespace Entities.Player
 
         protected override Entity GetTarget()
         {
-            return Fight.Enemy;
+            return Entities.Enemy;
         }
 
         public override EntityDataSo GetData()

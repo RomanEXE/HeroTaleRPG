@@ -1,11 +1,13 @@
+using System;
 using Inventory.Items;
 using UnityEngine;
 
 namespace Entities
 {
-    [System.Serializable]
+    [Serializable]
     public class ItemsDropper
     {
+        public event Action<Item> ItemDropped;
         public Item[] Items;
         
         private Vector3 _ownerPosition;
@@ -22,11 +24,10 @@ namespace Entities
                 if (RandomChance.Random(Items[i].DropChance))
                 {
                     DroppedItemSpawner.Instance.SpawnItem(Items[i], _ownerPosition);
+                    ItemDropped?.Invoke(Items[i]);
                     return;
                 }
             }
-            
-            Drop();
         }
     }
 }

@@ -4,18 +4,20 @@ using DG.Tweening.Plugins.Options;
 using Entities;
 using States.EntityStateMachine;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace UI
 {
     public class EntityUI : MonoBehaviour
     {
+        public HpBar HpBar => hpBar;
+
         [SerializeField] private Entity owner;
 
         [Header("UI")]
         [SerializeField] private Image fillingImage;
         [SerializeField] private Image stateImage;
+        [SerializeField] private HpBar hpBar;
 
         [Header("State Sprites")]
         [SerializeField] private Sprite attackState;
@@ -30,6 +32,8 @@ namespace UI
             stateMachine.StateChanged += Fill;
 
             _stateMachine = stateMachine;
+            
+            hpBar.Init(owner.GetData().MaxHp);
         }
 
         private void Fill(EntityStates state)

@@ -1,3 +1,4 @@
+using Entities;
 using UnityEngine;
 
 namespace Inventory.Items
@@ -7,6 +8,7 @@ namespace Inventory.Items
         public int Name;
         [Range(0, 100)] public int DropChance;
         public Sprite Icon;
+        public ItemStats Stats;
 
         public virtual void Equip()
         {
@@ -14,6 +16,11 @@ namespace Inventory.Items
         }
 
         public virtual void Remove()
+        {
+            
+        }
+
+        public virtual void GetInfo()
         {
             
         }

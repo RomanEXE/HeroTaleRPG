@@ -1,5 +1,6 @@
 using GameStates;
 using Inventory.Items.WeaponItem;
+using UnityEditor.Animations;
 using UnityEngine;
 
 namespace Entities
@@ -15,8 +16,9 @@ namespace Entities
         {
         }
         
-        public void Enter()
+        public void Enter(AnimatorController animatorController)
         {
+            animator.runtimeAnimatorController = animatorController;
             GameState.IdleState.IdleStateStarted += SetIdleAnimation;
         }
 

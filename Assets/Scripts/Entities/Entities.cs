@@ -1,18 +1,16 @@
-using Entities;
 using Entities.Enemies;
-using Entities.Player;
 using UnityEngine;
 
-namespace DefaultNamespace
+namespace Entities
 {
-    public static class Fight
+    public static class Entities
     {
-        public static Player Player;
+        public static Player.Player Player;
         public static Enemy Enemy;
 
         public static void Init()
         {
-            Player = MonoBehaviour.FindObjectOfType<Player>();
+            Player = MonoBehaviour.FindObjectOfType<Player.Player>();
             Enemy = MonoBehaviour.FindObjectOfType<Enemy>();
         }
     }

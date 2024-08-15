@@ -1,5 +1,4 @@
 using System;
-using DefaultNamespace;
 
 namespace Entities.Enemies
 {
@@ -25,16 +24,18 @@ namespace Entities.Enemies
         {
             Data.CurrentHp = Data.MaxHp;
             visual.gameObject.SetActive(true);
+            base.OnFightStateStarted();
         }
 
         protected override void OnIdleStateStarted()
         {
+            base.OnIdleStateStarted();
             visual.gameObject.SetActive(false);
         }
 
         protected override Entity GetTarget()
         {
-            return Fight.Player;
+            return Entities.Player;
         }
 
         public override EntityDataSo GetData()

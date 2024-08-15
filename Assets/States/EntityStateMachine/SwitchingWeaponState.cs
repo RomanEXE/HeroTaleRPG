@@ -1,4 +1,3 @@
-using DefaultNamespace;
 using UI;
 
 namespace States.EntityStateMachine
@@ -15,7 +14,7 @@ namespace States.EntityStateMachine
         
         public void Enter()
         {
-            if (_entityStateMachine.Owner == Fight.Player)
+            if (_entityStateMachine.Owner == Entities.Entities.Enemy)
             {
                 StateText.Instance.ChangeText("Switching");
             }
