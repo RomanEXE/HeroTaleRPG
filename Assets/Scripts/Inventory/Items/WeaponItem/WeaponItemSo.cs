@@ -1,13 +1,14 @@
 using Entities;
+using Items;
 using UnityEngine;
 using WeaponLogic;
 
 namespace Inventory.Items.WeaponItem
 {
     [CreateAssetMenu(fileName = "Weapon", menuName = "Items/Weapon", order = 1)]
-    public class WeaponItem : Item
+    public class WeaponItemSo : ItemSo
     {
-        public int Damage;
+        public float Damage;
         public float AttackDelay;
         public WeaponType Type;
 
@@ -21,7 +22,7 @@ namespace Inventory.Items.WeaponItem
             switch (Type)
             {
                 case WeaponType.Melee:
-                    return new MeleeWeapon(this);
+                    return new MeleeWeapon(this, owner);
                 case WeaponType.Range:
                     return new RangeWeapon(this, owner);
             }

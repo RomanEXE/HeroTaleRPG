@@ -8,7 +8,7 @@ namespace WeaponLogic.Projectiles
     public class Projectile : MonoBehaviour
     {
         public Entity Target;
-        public int Damage;
+        public float Damage;
         [SerializeField] private float speed;
 
         public void Move()

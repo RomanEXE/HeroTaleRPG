@@ -1,3 +1,5 @@
+using Inventory.Items;
+using Items;
 using UI;
 using UnityEngine;
 
@@ -65,9 +67,9 @@ namespace Entities.Player
         private void LevelUp()
         {
             level++;
-            Entities.Player.Data.MaxHp += 5;
-            Entities.Player.Data.PreparingForAttack -= 0.1f;
-            Entities.Player.Data.Armor++;
+            Entities.Player.Data.Stats[StatType.MaxHp] += 5;
+            Entities.Player.Data.Stats[StatType.PrepareForAttack] -= 0.1f;
+            Entities.Player.Data.Stats[StatType.Armor]++;
             
             CalculateRequiredExp();
         }

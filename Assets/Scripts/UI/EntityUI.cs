@@ -2,6 +2,8 @@ using DG.Tweening;
 using DG.Tweening.Core;
 using DG.Tweening.Plugins.Options;
 using Entities;
+using Inventory.Items;
+using Items;
 using States.EntityStateMachine;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -54,7 +56,7 @@ namespace UI
                     StartFillAnimation(_stateMachine.AttackPreparingTimer.GetTimeRemaining(), Color.yellow);
                     break;
                 case EntityStates.SwitchingWeapon:
-                    StartFillAnimation(owner.GetData().ChangingWeaponTime, Color.cyan);
+                    StartFillAnimation(owner.GetData().Stats[StatType.ChangingWeaponTime], Color.cyan);
                     break;
                 default:
                     stateImage.gameObject.SetActive(false);

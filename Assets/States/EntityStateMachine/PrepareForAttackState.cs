@@ -1,4 +1,6 @@
 using GameStates;
+using Inventory.Items;
+using Items;
 using UI;
 
 namespace States.EntityStateMachine
@@ -50,7 +52,7 @@ namespace States.EntityStateMachine
                 return;
             }
             
-            _entityStateMachine.AttackPreparingTimer = Timer.Register(_entityStateMachine.Owner, _entityStateMachine.Owner.GetData().PreparingForAttack, OnWaitAttackDelayComplete);
+            _entityStateMachine.AttackPreparingTimer = Timer.Register(_entityStateMachine.Owner, _entityStateMachine.Owner.GetData().Stats[StatType.PrepareForAttack], OnWaitAttackDelayComplete);
         }
 
         private void OnWaitAttackDelayComplete()

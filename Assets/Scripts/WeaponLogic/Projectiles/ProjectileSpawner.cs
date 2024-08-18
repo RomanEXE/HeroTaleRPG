@@ -18,7 +18,7 @@ namespace WeaponLogic.Projectiles
             }
         }
 
-        public void Spawn(Entity target, Vector2 position, int damage)
+        public void Spawn(Entity target, Vector2 position, float damage)
         {
             Projectile spawnedProjectile = LeanPool.Spawn(prefab, position, Quaternion.identity);
             spawnedProjectile.Target = target;

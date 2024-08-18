@@ -1,4 +1,6 @@
 using System;
+using Inventory.Items;
+using Items;
 
 namespace Entities.Enemies
 {
@@ -22,7 +24,7 @@ namespace Entities.Enemies
 
         protected override void OnFightStateStarted()
         {
-            Data.CurrentHp = Data.MaxHp;
+            Data.CurrentHp = Data.Stats[StatType.MaxHp];
             visual.gameObject.SetActive(true);
             base.OnFightStateStarted();
         }

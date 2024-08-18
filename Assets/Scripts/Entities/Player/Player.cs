@@ -1,4 +1,6 @@
 using System;
+using Inventory.Items;
+using Items;
 using UnityEngine;
 
 namespace Entities.Player
@@ -7,12 +9,16 @@ namespace Entities.Player
     {
         public event Action PlayerDied;
         public PlayerSo Data;
+        
+        public Inventory.Inventory Inventory => inventory;
 
+        [SerializeField] private Inventory.Inventory inventory;
+        
         public override void Init()
         {
             base.Init();
             Data.PlayerExp.Init();
-            Data.Inventory.Init();
+            inventory.Init();
         }
 
         protected override void Die()
@@ -25,7 +31,7 @@ namespace Entities.Player
 
         public void Heal()
         {
-            Data.CurrentHp = Data.MaxHp;
+            Data.CurrentHp = (int)Data.Stats[StatType.MaxHp];
         }
 
         protected override Entity GetTarget()

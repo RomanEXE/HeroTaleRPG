@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Enemy 1
   m_EditorClassIdentifier: 
   MaxHp: 25
-  CurrentHp: 25
+  CurrentHp: 0
   Armor: 0
   PreparingForAttack: 3
   ChangingWeaponTime: 0

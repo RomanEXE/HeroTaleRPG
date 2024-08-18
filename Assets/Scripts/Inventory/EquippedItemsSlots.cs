@@ -4,7 +4,8 @@ namespace Inventory
     {
         Helmet,
         Chest,
+        Pants,
         Boots,
-        Weapon
+        Weapon,
     }
 }

@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 159c528501e542cb8e385fb862e61b11, type: 3}
-  m_Name: DevineRapier
+  m_Name: Powerful weapon
   m_EditorClassIdentifier: 
-  Name: Deving Rapier
+  Name: Powerful Item
   DropChance: 100
-  Icon: {fileID: 21300000, guid: 4962bc89841825046a40e4e7494c044a, type: 3}
+  Icon: {fileID: 21300000, guid: eb56b2b6a5aae7d499e6aeedb4208cef, type: 3}
   UsageType: 1
   Stats:
-    Icon: {fileID: 21300000, guid: b4c4816ea72d1c04792f47d0209c7ce0, type: 3}
+    Icon: {fileID: 21300000, guid: f078944607b15ba40ae4e20e76e1aef1, type: 3}
     Value: 5
   Slot: 4
   Damage: 0

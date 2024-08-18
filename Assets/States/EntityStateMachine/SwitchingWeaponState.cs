@@ -1,3 +1,5 @@
+using Inventory.Items;
+using Items;
 using UI;
 
 namespace States.EntityStateMachine
@@ -25,7 +27,7 @@ namespace States.EntityStateMachine
             }
             
             _entityStateMachine.Owner.Animator.SetIdleAnimation();
-            _timer = Timer.Register(_entityStateMachine.Owner, _entityStateMachine.Owner.GetData().ChangingWeaponTime, SelectNextState);
+            _timer = Timer.Register(_entityStateMachine.Owner, _entityStateMachine.Owner.GetData().Stats[StatType.ChangingWeaponTime], SelectNextState);
         }
 
         private void SelectNextState()

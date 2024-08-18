@@ -1,21 +1,21 @@
 using Entities;
+using Inventory.Items;
 using Inventory.Items.WeaponItem;
+using Items;
 using WeaponLogic.Projectiles;
 
 namespace WeaponLogic
 {
     public class RangeWeapon : Weapon
     {
-        private Entity _owner;
-        
-        public RangeWeapon(WeaponItem data, Entity owner) : base(data)
+        public RangeWeapon(WeaponItemSo data, Entity owner) : base(data, owner)
         {
-            _owner = owner;
+            
         }
 
         public override void Attack(Entity target)
         {
-            ProjectileSpawner.Instance.Spawn(target, _owner.transform.position, Data.Damage);
+            ProjectileSpawner.Instance.Spawn(target, Owner.transform.position, Data.Damage + Owner.GetData().Stats[StatType.Power]);
         }
     }
 }

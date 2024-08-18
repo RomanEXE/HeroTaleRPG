@@ -1,7 +1,7 @@
 using Lean.Pool;
 using UnityEngine;
 
-namespace Inventory.Items
+namespace Items
 {
     public class DroppedItemSpawner : MonoBehaviour
     {
@@ -18,10 +18,10 @@ namespace Inventory.Items
             }
         }
 
-        public void SpawnItem(Item item, Vector3 spawnPosition)
+        public void SpawnItem(ItemSo itemSo, Vector3 spawnPosition)
         {
             SpriteRenderer spawnedItem = LeanPool.Spawn(droppedItemPrefab, spawnPosition, Quaternion.identity);
-            spawnedItem.sprite = item.Icon;
+            spawnedItem.sprite = itemSo.Icon;
             LeanPool.Despawn(spawnedItem, despawnTime);
         }
     }

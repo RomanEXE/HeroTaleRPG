@@ -1,5 +1,6 @@
 using System;
 using Inventory.Items;
+using Items;
 using UnityEngine;
 
 namespace Entities
@@ -7,8 +8,8 @@ namespace Entities
     [Serializable]
     public class ItemsDropper
     {
-        public event Action<Item> ItemDropped;
-        public Item[] Items;
+        public event Action<ItemSo> ItemDropped;
+        public ItemSo[] Items;
         
         private Vector3 _ownerPosition;
         

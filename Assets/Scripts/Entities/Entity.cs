@@ -1,6 +1,8 @@
 using System;
 using GameStates;
+using Inventory.Items;
 using Inventory.Items.WeaponItem;
+using Items;
 using States.EntityStateMachine;
 using UI;
 using UnityEngine;
@@ -16,13 +18,13 @@ namespace Entities
         [field: SerializeField] public EntityUI UI { get; private set; }
         [field: SerializeField] public EntityAnimationController Animator { get; private set; }
         
-        [SerializeField] private WeaponItem weaponData;
+        [SerializeField] private WeaponItemSo weaponData;
         [SerializeField] protected SpriteRenderer visual;
         
         private EntityStateMachine _stateMachine;
         
         
-        public WeaponItem Range;
+        public WeaponItemSo Range;
 
         
         public virtual void Init()
@@ -36,10 +38,10 @@ namespace Entities
             GameState.IdleState.IdleStateStarted += OnIdleStateStarted;
         }
         
-        public void ApplyDamage(int damage)
+        public void ApplyDamage(float damage)
         {
             GetData().CurrentHp -= damage;
-            UI.HpBar.ChangeValue(GetData().CurrentHp, GetData().MaxHp);
+            UI.HpBar.ChangeValue(GetData().CurrentHp, GetData().Stats[StatType.MaxHp]);
 
             if (GetData().CurrentHp <= 0)
             {
@@ -67,12 +69,16 @@ namespace Entities
         
         protected virtual void OnFightStateStarted()
         {
-            UI.HpBar.ChangeValue(GetData().CurrentHp, GetData().MaxHp);
+            UI.HpBar.ChangeValue(GetData().CurrentHp, GetData().Stats[StatType.MaxHp]);
         }
         
         protected virtual void OnIdleStateStarted()
         {
-            UI.HpBar.ChangeValue(GetData().CurrentHp, GetData().MaxHp);
+            if (UI == null || UI.HpBar == null)
+            {
+                return;
+            }
+            UI.HpBar.ChangeValue(GetData().CurrentHp, GetData().Stats[StatType.MaxHp]);
         }
 
         public virtual EntityDataSo GetData()

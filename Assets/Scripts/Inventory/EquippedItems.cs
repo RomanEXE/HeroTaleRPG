@@ -1,30 +1,57 @@
 using System.Collections.Generic;
-using Inventory.Items;
-using Inventory.Items.Armor;
-using Inventory.Items.WeaponItem;
+using Items;
 using Sirenix.OdinInspector;
 using UI.Inventory;
+using UnityEngine;
 
 namespace Inventory
 {
-    public class EquippedItems : SerializedBehaviour
+    public class EquippedItems : SerializedMonoBehaviour
     {
-        public ArmorItem Helmet;
-        public ArmorItem Chest;
-        public ArmorItem Boots;
-        public WeaponItem Weapon;
-
         [DictionaryDrawerSettings]
         public Dictionary<EquippedItemsSlots, InventoryCell> Slots;
-        
-        public void EquipItem(EquippedItemsSlots slot, Item item)
+
+        [SerializeField] private InventoryUI ui;
+
+        private void Start()
         {
-            Entities.Entities.Player.Data.Inventory.RemoveItem(item);
-            Entities.Entities.Player.Data.Inventory.AddItem(Slots[slot].Item);
+            foreach (var slot in Entities.Entities.Player.Data.Slots)
+            {
+                if (slot.Value != null)
+                {
+                    Slots[slot.Key].SetItem(slot.Value);
+                }
+            }
+        }
+
+        public void EquipItem(EquippedItemsSlots slot, ItemSo item)
+        {
+            if (Slots[slot].Item == item)
+            {
+                return;
+            }
+            
+            //ui.RemoveItem(item);
+            Entities.Entities.Player.Inventory.RemoveItem(item);
+            
+            if (Slots[slot].Item != null)
+            {
+                RemoveOldItem(Slots[slot].Item);
+                //Slots[slot].Item.Remove();
+                //ui.AddItem(Slots[slot].Item);
+            }
+            
             Slots[slot].SetItem(item);
+            Entities.Entities.Player.Data.Slots[slot] = item;
             
             item.Equip();
             Entities.Entities.Player.SwitchWeapon();
+        }
+
+        private void RemoveOldItem(ItemSo oldItem)
+        {
+            oldItem.Remove();
+            Entities.Entities.Player.Inventory.AddItem(oldItem);
         }
     }
 }

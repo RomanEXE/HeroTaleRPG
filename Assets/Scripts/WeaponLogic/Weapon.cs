@@ -9,13 +9,16 @@ namespace WeaponLogic
     {
         public event Action AttackRateEnded;
         public bool InCooldown { get; private set; }
-        public WeaponItem Data { get; private set; }
+        public WeaponItemSo Data { get; private set; }
 
         private Timer _timer;
 
-        public Weapon(WeaponItem data)
+        protected Entity Owner;
+
+        public Weapon(WeaponItemSo data, Entity owner)
         {
             Data = data;
+            Owner = owner;
         }
 
         public abstract void Attack(Entity target);
